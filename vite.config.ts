@@ -8,11 +8,23 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 export default defineConfig({
   plugins: [
     vue(),
-    vueDevTools(),
+    // Solo habilitar devtools en desarrollo
+    ...(process.env.NODE_ENV === 'development' ? [vueDevTools()] : []),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
+    },
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    // Asegurar que los assets se generen correctamente
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
     },
   },
 })

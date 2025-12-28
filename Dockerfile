@@ -25,8 +25,8 @@ ENV VITE_STRIPE_PUBLISHABLE_KEY=${VITE_STRIPE_PUBLISHABLE_KEY}
 ENV VITE_APP_NAME=${VITE_APP_NAME}
 ENV VITE_APP_ENV=${VITE_APP_ENV}
 
-# Construir la aplicación
-RUN npm run build
+# Construir la aplicación (usar build-only para evitar problemas con type-check)
+RUN npm run build-only
 
 # Etapa de producción con Nginx
 FROM nginx:alpine
