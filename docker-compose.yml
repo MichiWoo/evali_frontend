@@ -1,0 +1,36 @@
+services:
+  # Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL:-https://api.tudominio.com}
+        - VITE_STRIPE_PUBLISHABLE_KEY=${VITE_STRIPE_PUBLISHABLE_KEY:-}
+        - VITE_APP_NAME=${VITE_APP_NAME:-Evali}
+        - VITE_APP_ENV=${VITE_APP_ENV:-production}
+    container_name: evali-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/", "||", "exit", "1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# =============================================================================
+# NOTAS IMPORTANTES
+# =============================================================================
+# - Este docker-compose.yml es para el repositorio del FRONTEND únicamente
+# - El frontend se conecta al backend mediante VITE_API_BASE_URL
+# - Las variables VITE_* se compilan en tiempo de build
+# - Si cambias VITE_API_BASE_URL, debes reconstruir la imagen
+# - Los puertos pueden ser configurados mediante variables de entorno:
+#   FRONTEND_PORT (default: 3000)
+# - Asegúrate de configurar todas las variables de entorno necesarias
+#   según el archivo .env.example
+# =============================================================================
+
