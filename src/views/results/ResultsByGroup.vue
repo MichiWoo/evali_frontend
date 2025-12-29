@@ -335,31 +335,63 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-@import "tailwindcss";
-
 .stats-card {
-  @apply bg-white dark:bg-surface-800 p-4 rounded-lg border border-surface-200 dark:border-surface-700;
-  @apply flex items-center gap-4;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--p-color-surface-200);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dark .stats-card {
+  background-color: var(--p-color-surface-800);
+  border-color: var(--p-color-surface-700);
 }
 
 .stats-icon {
-  @apply w-12 h-12 rounded-full flex items-center justify-center;
-  @apply bg-blue-50 dark:bg-blue-900/20;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(239 246 255);
+}
+
+.dark .stats-icon {
+  background-color: rgb(30 58 138 / 0.2);
 }
 
 .stats-content h3 {
-  @apply text-2xl font-bold text-surface-900 dark:text-surface-0 mb-1;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--p-color-surface-900);
+  margin-bottom: 0.25rem;
+}
+
+.dark .stats-content h3 {
+  color: var(--p-color-surface-0);
 }
 
 .stats-content p {
-  @apply text-sm text-muted-color;
+  font-size: 0.875rem;
+  color: var(--p-color-text-secondary);
 }
 
 :deep(.p-datatable .p-datatable-tbody > tr > td) {
-  @apply py-2;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 :deep(.p-datatable .p-datatable-thead > tr > th) {
-  @apply py-3 bg-surface-50 dark:bg-surface-700;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: var(--p-color-surface-50);
+}
+
+.dark :deep(.p-datatable .p-datatable-thead > tr > th) {
+  background-color: var(--p-color-surface-700);
 }
 </style>

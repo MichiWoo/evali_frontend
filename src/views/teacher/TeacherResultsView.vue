@@ -1128,18 +1128,26 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-@import "tailwindcss";
-
 .teacher-results-view {
   padding: 1.5rem;
 }
 
 .stats-card {
-  @apply bg-white dark:bg-surface-800 p-4 rounded-lg border border-surface-200 dark:border-surface-700;
-  @apply flex items-center gap-4;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--p-color-surface-200);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   transition:
     transform 0.2s,
     box-shadow 0.2s;
+}
+
+.dark .stats-card {
+  background-color: var(--p-color-surface-800);
+  border-color: var(--p-color-surface-700);
 }
 
 .stats-card:hover {
@@ -1148,73 +1156,139 @@ onMounted(async () => {
 }
 
 .stats-card-primary .stats-icon {
-  @apply w-14 h-14 rounded-full flex items-center justify-center;
-  @apply bg-blue-50 dark:bg-blue-900/20;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(239 246 255);
+}
+
+.dark .stats-card-primary .stats-icon {
+  background-color: rgb(30 58 138 / 0.2);
 }
 
 .stats-card-primary .stats-icon i {
-  @apply text-blue-500;
+  color: rgb(59 130 246);
 }
 
 .stats-card-success .stats-icon {
-  @apply w-14 h-14 rounded-full flex items-center justify-center;
-  @apply bg-green-50 dark:bg-green-900/20;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240 253 244);
+}
+
+.dark .stats-card-success .stats-icon {
+  background-color: rgb(20 83 45 / 0.2);
 }
 
 .stats-card-success .stats-icon i {
-  @apply text-green-500;
+  color: rgb(34 197 94);
 }
 
 .stats-card-info .stats-icon {
-  @apply w-14 h-14 rounded-full flex items-center justify-center;
-  @apply bg-cyan-50 dark:bg-cyan-900/20;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(236 254 255);
+}
+
+.dark .stats-card-info .stats-icon {
+  background-color: rgb(19 78 74 / 0.2);
 }
 
 .stats-card-info .stats-icon i {
-  @apply text-cyan-500;
+  color: rgb(6 182 212);
 }
 
 .stats-card-warning .stats-icon {
-  @apply w-14 h-14 rounded-full flex items-center justify-center;
-  @apply bg-orange-50 dark:bg-orange-900/20;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255 247 237);
+}
+
+.dark .stats-card-warning .stats-icon {
+  background-color: rgb(154 52 18 / 0.2);
 }
 
 .stats-card-warning .stats-icon i {
-  @apply text-orange-500;
+  color: rgb(249 115 22);
 }
 
 .stats-content h3 {
-  @apply text-3xl font-bold text-surface-900 dark:text-surface-0 mb-1;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--p-color-surface-900);
+  margin-bottom: 0.25rem;
+}
+
+.dark .stats-content h3 {
+  color: var(--p-color-surface-0);
 }
 
 .stats-content p {
-  @apply text-sm text-muted-color;
+  font-size: 0.875rem;
+  color: var(--p-color-text-secondary);
 }
 
 .stats-trend {
-  @apply flex items-center gap-1 text-xs;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
 }
 
 .chart-container {
-  @apply relative w-full;
+  position: relative;
+  width: 100%;
   height: 300px;
 }
 
 .chart-loading {
-  @apply absolute inset-0 flex flex-col items-center justify-center bg-white/80 dark:bg-surface-800/80 rounded-lg;
-  @apply text-muted-color;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255 255 255 / 0.8);
+  border-radius: 0.5rem;
+  color: var(--p-color-text-secondary);
+}
+
+.dark .chart-loading {
+  background-color: var(--p-color-surface-800 / 0.8);
 }
 
 .insight-message {
-  @apply mb-0;
+  margin-bottom: 0;
 }
 
 :deep(.p-datatable .p-datatable-tbody > tr > td) {
-  @apply py-3;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 :deep(.p-datatable .p-datatable-thead > tr > th) {
-  @apply py-3 bg-surface-50 dark:bg-surface-700;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: var(--p-color-surface-50);
+}
+
+.dark :deep(.p-datatable .p-datatable-thead > tr > th) {
+  background-color: var(--p-color-surface-700);
 }
 
 :deep(.p-progressbar) {
