@@ -7,8 +7,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/components/navigation/RoleRedirect.vue'),
-      meta: { requiresAuth: true },
+      component: () => import('@/views/pages/Landing.vue'),
+      meta: {},
     },
     {
       path: '/login',
@@ -409,6 +409,18 @@ router.beforeEach(async (to, from, next) => {
     !to.path.includes('/verify-email')
   ) {
     next(to.path.replace('/auth', ''))
+    return
+  }
+
+  // Redirect authenticated users from landing page to their dashboard
+  if (to.path === '/' && isAuthenticated) {
+    if (authStore.isStudent) {
+      next('/student/dashboard')
+    } else if (authStore.isTeacher || authStore.isAdmin) {
+      next('/dashboard')
+    } else {
+      next('/login')
+    }
     return
   }
 

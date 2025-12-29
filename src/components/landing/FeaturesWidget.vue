@@ -3,9 +3,9 @@
     <div class="grid grid-cols-12 gap-4 justify-center">
       <div class="col-span-12 text-center mt-20 mb-6">
         <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">
-          Marvelous Features
+          Características Principales
         </div>
-        <span class="text-muted-color text-2xl">Placerat in egestas erat...</span>
+        <span class="text-muted-color text-2xl">Todo lo que necesitas para gestionar tus evaluaciones</span>
       </div>
 
       <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
@@ -26,9 +26,9 @@
             >
               <i class="pi pi-fw pi-users !text-2xl text-yellow-700"></i>
             </div>
-            <h5 class="mb-2 text-surface-900 dark:text-surface-0">Easy to Use</h5>
+            <h5 class="mb-2 text-surface-900 dark:text-surface-0">Fácil de Usar</h5>
             <span class="text-surface-600 dark:text-surface-200"
-              >Posuere morbi leo urna molestie.</span
+              >Interfaz intuitiva para crear y gestionar exámenes rápidamente.</span
             >
           </div>
         </div>
@@ -52,8 +52,8 @@
             >
               <i class="pi pi-fw pi-palette !text-2xl text-cyan-700"></i>
             </div>
-            <h5 class="mb-2 text-surface-900 dark:text-surface-0">Fresh Design</h5>
-            <span class="text-surface-600 dark:text-surface-200">Semper risus in hendrerit.</span>
+            <h5 class="mb-2 text-surface-900 dark:text-surface-0">Generación con IA</h5>
+            <span class="text-surface-600 dark:text-surface-200">Crea exámenes automáticamente usando inteligencia artificial.</span>
           </div>
         </div>
       </div>
@@ -77,10 +77,10 @@
               <i class="pi pi-fw pi-map !text-2xl text-indigo-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Well Documented
+              Análisis de Respuestas
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Non arcu risus quis varius quam quisque.</span
+              >Analiza las respuestas de los estudiantes con herramientas avanzadas.</span
             >
           </div>
         </div>
@@ -105,10 +105,10 @@
               <i class="pi pi-fw pi-id-card !text-2xl text-slate-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Responsive Layout
+              Gestión de Grupos
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Nulla malesuada pellentesque elit.</span
+              >Organiza estudiantes en grupos y gestiona sus evaluaciones.</span
             >
           </div>
         </div>
@@ -133,10 +133,10 @@
               <i class="pi pi-fw pi-star !text-2xl text-orange-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Clean Code
+              Reportes Detallados
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Condimentum lacinia quis vel eros.</span
+              >Visualiza estadísticas y reportes del rendimiento de tus estudiantes.</span
             >
           </div>
         </div>
@@ -161,10 +161,10 @@
               <i class="pi pi-fw pi-moon !text-2xl text-pink-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Dark Mode
+              Modo Oscuro
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Convallis tellus id interdum velit laoreet.</span
+              >Interfaz con soporte para modo oscuro para una mejor experiencia.</span
             >
           </div>
         </div>
@@ -189,9 +189,9 @@
               <i class="pi pi-fw pi-shopping-cart !text-2xl text-teal-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Ready to Use
+              Listo para Usar
             </div>
-            <span class="text-surface-600 dark:text-surface-200">Mauris sit amet massa vitae.</span>
+            <span class="text-surface-600 dark:text-surface-200">Comienza a crear exámenes en minutos, sin configuración complicada.</span>
           </div>
         </div>
       </div>
@@ -215,10 +215,10 @@
               <i class="pi pi-fw pi-globe !text-2xl text-blue-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Modern Practices
+              Seguro y Confiable
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Elementum nibh tellus molestie nunc non.</span
+              >Tus datos y evaluaciones están protegidos con las mejores prácticas de seguridad.</span
             >
           </div>
         </div>
@@ -243,10 +243,10 @@
               <i class="pi pi-fw pi-eye !text-2xl text-purple-700"></i>
             </div>
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
-              Privacy
+              Privacidad
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Neque egestas congue quisque.</span
+              >Respetamos tu privacidad y la de tus estudiantes en todo momento.</span
             >
           </div>
         </div>
