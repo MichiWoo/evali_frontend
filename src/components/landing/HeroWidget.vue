@@ -38,8 +38,10 @@
         ></Button>
       </div>
     </div>
-    <div class="flex justify-center md:justify-end">
-      <img src="/demo/images/landing/screen-1.png" alt="Hero Image" class="w-9/12 md:w-auto" />
+    <div class="flex justify-center md:justify-end mt-8">
+      <div class="w-9/12 md:w-auto h-64 bg-gradient-to-br from-primary-100 to-primary-300 rounded-lg flex items-center justify-center">
+        <i class="pi pi-file-edit text-6xl text-primary-600"></i>
+      </div>
     </div>
   </div>
 </template>

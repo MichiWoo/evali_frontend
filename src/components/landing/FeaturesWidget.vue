@@ -262,17 +262,14 @@
         "
       >
         <div class="flex flex-col justify-center items-center text-center px-4 py-4 md:py-0">
-          <div class="text-gray-900 mb-2 text-3xl font-semibold">Joséphine Miller</div>
-          <span class="text-gray-600 text-2xl">Peak Interactive</span>
+          <div class="text-gray-900 mb-2 text-3xl font-semibold">María González</div>
+          <span class="text-gray-600 text-2xl">Profesora de Matemáticas</span>
           <p
             class="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-6"
             style="max-width: 800px"
           >
-            “Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.”
+            "Evali ha transformado completamente la forma en que gestiono las evaluaciones. La interfaz es intuitiva y las herramientas de análisis son increíbles."
           </p>
-          <img src="/demo/images/landing/peak-logo.svg" class="mt-6" alt="Company logo" />
         </div>
       </div>
     </div>

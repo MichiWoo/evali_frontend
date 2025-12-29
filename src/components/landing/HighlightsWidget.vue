@@ -9,10 +9,10 @@
 
     <div class="grid grid-cols-12 gap-4 mt-20 pb-2 md:pb-20">
       <div
-        class="flex justify-center col-span-12 lg:col-span-6 bg-purple-100 p-0 order-1 lg:order-none"
-        style="border-radius: 8px"
+        class="flex justify-center items-center col-span-12 lg:col-span-6 bg-purple-100 p-8 order-1 lg:order-none"
+        style="border-radius: 8px; min-height: 300px;"
       >
-        <img src="/demo/images/landing/mockup.svg" class="w-11/12" alt="mockup mobile" />
+        <i class="pi pi-mobile text-8xl text-purple-600"></i>
       </div>
 
       <div
@@ -60,10 +60,10 @@
       </div>
 
       <div
-        class="flex justify-end order-1 sm:order-2 col-span-12 lg:col-span-6 bg-yellow-100 p-0"
-        style="border-radius: 8px"
+        class="flex justify-center items-center order-1 sm:order-2 col-span-12 lg:col-span-6 bg-yellow-100 p-8"
+        style="border-radius: 8px; min-height: 300px;"
       >
-        <img src="/demo/images/landing/mockup-desktop.svg" class="w-11/12" alt="mockup" />
+        <i class="pi pi-desktop text-8xl text-yellow-600"></i>
       </div>
     </div>
   </div>

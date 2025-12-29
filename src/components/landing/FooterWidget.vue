@@ -99,8 +99,8 @@
             >
             <a
               class="leading-normal text-xl block cursor-pointer mb-2 text-surface-700 dark:text-surface-100"
-              >Events<img src="/demo/images/landing/new-badge.svg" class="ml-2"
-            /></a>
+              >Events</a
+            >
             <a
               class="leading-normal text-xl block cursor-pointer mb-2 text-surface-700 dark:text-surface-100"
               >FAQ</a

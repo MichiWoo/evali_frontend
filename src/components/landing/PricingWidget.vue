@@ -14,7 +14,9 @@
           style="border-radius: 10px"
         >
           <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl">Free</div>
-          <img src="/demo/images/landing/free.svg" class="w-10/12 mx-auto" alt="free" />
+          <div class="flex justify-center my-4">
+            <i class="pi pi-gift text-6xl text-cyan-500"></i>
+          </div>
           <div class="my-8 flex flex-col items-center gap-4">
             <div class="flex items-center">
               <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">$0</span>
@@ -53,7 +55,9 @@
           style="border-radius: 10px"
         >
           <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl">Startup</div>
-          <img src="/demo/images/landing/startup.svg" class="w-10/12 mx-auto" alt="startup" />
+          <div class="flex justify-center my-4">
+            <i class="pi pi-rocket text-6xl text-blue-500"></i>
+          </div>
           <div class="my-8 flex flex-col items-center gap-4">
             <div class="flex items-center">
               <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">$1</span>
@@ -94,7 +98,9 @@
           <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl">
             Enterprise
           </div>
-          <img src="/demo/images/landing/enterprise.svg" class="w-10/12 mx-auto" alt="enterprise" />
+          <div class="flex justify-center my-4">
+            <i class="pi pi-building text-6xl text-purple-500"></i>
+          </div>
           <div class="my-8 flex flex-col items-center gap-4">
             <div class="flex items-center">
               <span class="text-5xl font-bold mr-2 text-surface-900 dark:text-surface-0">$5</span>
