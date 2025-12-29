@@ -553,11 +553,7 @@
       <Button
         label="Cancelar"
         icon="pi pi-times"
-        @click="
-          showAddStudentsDialog = false
-          selectedStudents = []
-          searchQuery = ''
-        "
+        @click="showAddStudentsDialog = false; selectedStudents = []; searchQuery = ''"
         severity="secondary"
         outlined
       />
