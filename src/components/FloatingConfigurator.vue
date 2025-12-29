@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onBeforeUnmount, ref } from 'vue'
 import AppConfigurator from '@/layout/AppConfigurator.vue'
 import { useLayout } from '@/layout/composables/layout'

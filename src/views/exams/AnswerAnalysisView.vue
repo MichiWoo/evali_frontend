@@ -124,7 +124,6 @@ import Button from 'primevue/button'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import ProgressSpinner from 'primevue/progressspinner'
-import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
 import AnalysisResult from '@/components/exams/ai/AnalysisResult.vue'
 import { useAnswerAnalysisStore } from '@/stores/answerAnalysis'
@@ -174,7 +173,7 @@ const loadExam = async () => {
     loadingExam.value = true
     const response = await examStore.fetchExam(examId.value)
     exam.value = response.data
-  } catch (err) {
+  } catch (_err) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -202,7 +201,7 @@ const loadAnswers = async () => {
     // Obtener respuestas para estas preguntas
     // Nota: Necesitamos un endpoint que devuelva respuestas abiertas de un examen
     // Por ahora, usaremos el endpoint de análisis que lista todas las respuestas
-    const analysesResponse = await answerAnalysisStore.fetchAnalyses(examId.value)
+    const _analysesResponse = await answerAnalysisStore.fetchAnalyses(examId.value)
 
     // Mapear análisis a respuestas (esto es una aproximación)
     // En producción, necesitarías un endpoint específico para obtener respuestas abiertas

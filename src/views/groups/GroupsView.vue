@@ -5,7 +5,6 @@ import { useGroupStore } from '@/stores/groups'
 import { useSubscriptionStore } from '@/stores/subscriptions'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import api from '@/services/api'
 import axios from 'axios'
 import type { Group } from '@/types'
 
@@ -86,7 +85,7 @@ const hasActiveFilters = computed(() => {
   )
 })
 
-const activeFiltersCount = computed(() => {
+const _activeFiltersCount = computed(() => {
   let count = 0
   if (filters.value.search) count++
   if (filters.value.status) count++
@@ -142,7 +141,7 @@ const groupStats = computed(() => {
 const loadGroups = async () => {
   try {
     await groupStore.fetchGroups()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading groups:', error)
   }
 }
@@ -182,7 +181,7 @@ const deleteGroup = (group: Group) => {
           summary: 'Éxito',
           detail: 'Grupo eliminado correctamente',
         })
-      } catch (error) {
+      } catch (_error) {
         console.error('Error deleting group:', error)
         toast.add({
           severity: 'error',
@@ -271,7 +270,7 @@ const duplicateGroup = (group: Group) => {
           summary: 'Función pendiente',
           detail: 'La duplicación de grupos estará disponible pronto',
         })
-      } catch (error) {
+      } catch (_error) {
         console.error('Error duplicating group:', error)
         toast.add({
           severity: 'error',
@@ -319,7 +318,7 @@ const exportGroups = () => {
       summary: 'Exportación exitosa',
       detail: `${groupsToExport.length} grupos exportados correctamente`,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error exporting groups:', error)
     toast.add({
       severity: 'error',
@@ -339,14 +338,14 @@ const importGroups = () => {
       const reader = new FileReader()
       reader.onload = (e) => {
         try {
-          const csv = e.target?.result as string
+          const _csv = e.target?.result as string
           // TODO: Implementar importación de grupos
           toast.add({
             severity: 'info',
             summary: 'Función pendiente',
             detail: 'La importación de grupos estará disponible pronto',
           })
-        } catch (error) {
+        } catch (_error) {
           console.error('Error importing groups:', error)
           toast.add({
             severity: 'error',
@@ -426,7 +425,7 @@ const generateReport = async (type: 'pdf' | 'excel' = 'pdf') => {
       summary: 'Reporte generado',
       detail: 'El reporte se ha descargado correctamente',
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error generating report:', error)
     toast.add({
       severity: 'error',
@@ -436,7 +435,7 @@ const generateReport = async (type: 'pdf' | 'excel' = 'pdf') => {
   }
 }
 
-const assignTeacher = (group: Group) => {
+const assignTeacher = (_group: Group) => {
   // TODO: Implementar asignación de profesor
   toast.add({
     severity: 'info',
@@ -445,7 +444,7 @@ const assignTeacher = (group: Group) => {
   })
 }
 
-const transferGroup = (group: Group) => {
+const transferGroup = (_group: Group) => {
   // TODO: Implementar transferencia de grupo
   toast.add({
     severity: 'info',
@@ -538,7 +537,7 @@ const processBulkAction = async (action: string) => {
             break
         }
         successCount++
-      } catch (error) {
+      } catch (_error) {
         console.error(`Error processing group ${groupId}:`, error)
         errorCount++
       }
@@ -563,7 +562,7 @@ const processBulkAction = async (action: string) => {
 
     // Limpiar selección
     selectedGroups.value = []
-  } catch (error) {
+  } catch (_error) {
     console.error('Error in bulk action:', error)
     toast.add({
       severity: 'error',
@@ -591,7 +590,7 @@ onMounted(async () => {
   // Cargar información de uso del plan
   try {
     await subscriptionStore.fetchUsage()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading subscription usage:', error)
   }
 })

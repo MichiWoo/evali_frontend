@@ -155,12 +155,12 @@ import type { Plan } from '@/types'
 // Stripe imports
 import { loadStripe, type Stripe } from '@stripe/stripe-js'
 
-const props = defineProps<{
+const _props = defineProps<{
   plan: Plan
   visible: boolean
 }>()
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   success: [subscription: any]
   cancel: []
 }>()

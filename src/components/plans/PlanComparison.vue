@@ -164,12 +164,12 @@ import type { Plan } from '@/types'
 import Button from 'primevue/button'
 
 // Props
-const props = defineProps<{
+const _props = defineProps<{
   plans: Plan[]
 }>()
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   planSelected: [plan: Plan]
 }>()
 

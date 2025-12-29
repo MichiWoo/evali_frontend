@@ -49,7 +49,7 @@ export const authUtils = {
       }
 
       return { success: false, error: 'No se recibió token de autenticación' }
-    } catch (error) {
+    } catch {
       return { success: false, error: 'Error de conexión' }
     }
   },

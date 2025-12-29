@@ -229,10 +229,8 @@ import type { Group } from '@/types'
 // Components
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
-import Password from 'primevue/password'
 import Select from 'primevue/select'
 import MultiSelect from 'primevue/multiselect'
-import Message from 'primevue/message'
 import Editor from 'primevue/editor'
 import PlanLimitModal from '@/components/plans/PlanLimitModal.vue'
 
@@ -301,7 +299,7 @@ const copyPassword = async () => {
       summary: 'Copiado',
       detail: 'Contraseña copiada al portapapeles',
     })
-  } catch (err) {
+  } catch (_err) {
     console.error('Error copying password:', err)
     toast.add({
       severity: 'error',
@@ -410,7 +408,7 @@ const loadGroups = async () => {
   try {
     await groupStore.fetchGroups()
     availableGroups.value = groupStore.groups
-  } catch (err) {
+  } catch (_err) {
     console.error('Error loading groups:', err)
   }
 }

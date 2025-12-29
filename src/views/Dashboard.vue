@@ -99,12 +99,7 @@
         <div class="card">
           <div class="flex justify-between items-center mb-4">
             <div class="font-semibold text-xl">Exámenes Recientes</div>
-            <Button
-              label="Ver Todos"
-              icon="pi pi-arrow-right"
-              text
-              @click="$router.push('/exams')"
-            />
+            <Button label="Ver Todos" icon="pi pi-arrow-right" text @click="goToExams" />
           </div>
 
           <div v-if="isLoading" class="flex justify-center py-8">
@@ -115,7 +110,7 @@
             <i class="pi pi-file-edit text-4xl text-muted-color mb-4"></i>
             <h3 class="text-xl font-medium mb-2">No hay exámenes</h3>
             <p class="text-muted-color mb-4">Crea tu primer examen para comenzar</p>
-            <Button label="Crear Examen" icon="pi pi-plus" @click="$router.push('/exams/create')" />
+            <Button label="Crear Examen" icon="pi pi-plus" @click="goToCreateExam" />
           </div>
 
           <DataTable
@@ -156,14 +151,14 @@
                     icon="pi pi-eye"
                     size="small"
                     text
-                    @click="$router.push(`/exams/${slotProps.data.id}`)"
+                    @click="viewExam(slotProps.data.id)"
                     v-tooltip.top="'Ver examen'"
                   />
                   <Button
                     icon="pi pi-pencil"
                     size="small"
                     text
-                    @click="$router.push(`/exams/${slotProps.data.id}/edit`)"
+                    @click="editExam(slotProps.data.id)"
                     v-tooltip.top="'Editar examen'"
                   />
                 </div>
@@ -407,15 +402,15 @@
 
 <!--
   Dashboard del Profesor
-  
+
   RESTRICCIONES DE ACCESO:
   - Requiere autenticación: Sí
   - Roles permitidos: 'teacher', 'admin'
   - Permisos requeridos: Ninguno específico (solo rol)
-  
+
   RUTA: /dashboard
   META: { requiresAuth: true, requiresRole: ['teacher', 'admin'] }
-  
+
   DESCRIPCIÓN:
   Vista principal para profesores que muestra un resumen de:
   - Exámenes creados y recientes
@@ -424,7 +419,7 @@
   - Estadísticas de calificaciones
   - Actividad reciente
   - Notificaciones
-  
+
   NOTAS:
   - Los estudiantes tienen su propio dashboard en /student/dashboard
   - Los admins pueden acceder pero pueden preferir usar el dashboard principal
@@ -463,9 +458,9 @@ const recentExams = computed(() => dashboardStore.recentExams)
 
 // Dashboard data
 const totalStudents = computed(() => dashboardStore.userStats?.total_students || 0)
-const totalAttempts = computed(() => dashboardStore.userStats?.total_attempts || 0)
-const averageScore = computed(() => dashboardStore.averageScore)
-const completionRate = computed(() => dashboardStore.completionRate)
+const _totalAttempts = computed(() => dashboardStore.userStats?.total_attempts || 0)
+const _averageScore = computed(() => dashboardStore.averageScore)
+const _completionRate = computed(() => dashboardStore.completionRate)
 const recentActivity = computed(() => dashboardStore.recentActivity)
 const notifications = computed(() => dashboardStore.notifications)
 
@@ -476,8 +471,8 @@ const activeGroups = computed(
 )
 
 // State
-const showAllActivity = ref(false)
-const showAllNotifications = ref(false)
+const _showAllActivity = ref(false)
+const _showAllNotifications = ref(false)
 const notificationsMenu = ref(null)
 const activityMenu = ref(null)
 
@@ -494,6 +489,22 @@ const activityMenuItems = ref([
 ])
 
 // Methods
+const goToExams = () => {
+  router.push('/exams')
+}
+
+const goToCreateExam = () => {
+  router.push('/exams/create')
+}
+
+const viewExam = (examId: number) => {
+  router.push(`/exams/${examId}`)
+}
+
+const editExam = (examId: number) => {
+  router.push(`/exams/${examId}/edit`)
+}
+
 const markAsRead = async (notificationId: number) => {
   try {
     await dashboardStore.markNotificationAsRead(notificationId)

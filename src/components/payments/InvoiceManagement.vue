@@ -156,7 +156,7 @@ const fetchInvoices = async (loadMore = false) => {
 
     hasMore.value = result.has_more
     nextPage.value = result.next_page
-  } catch (err) {
+  } catch (_err) {
     error.value = 'Error al cargar las facturas'
     console.error('Error fetching invoices:', err)
   } finally {
@@ -185,7 +185,7 @@ const downloadInvoice = async (invoice: any) => {
         life: 3000,
       })
     }
-  } catch (err) {
+  } catch (_err) {
     toast.add({
       severity: 'error',
       summary: 'Error',

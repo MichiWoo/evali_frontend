@@ -18,7 +18,8 @@
         <span class="font-light block">Plataforma de Evaluación</span>Inteligente para Educadores
       </h1>
       <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700">
-        Crea, gestiona y analiza exámenes de manera eficiente. Evalúa el rendimiento de tus estudiantes con herramientas avanzadas de análisis.
+        Crea, gestiona y analiza exámenes de manera eficiente. Evalúa el rendimiento de tus
+        estudiantes con herramientas avanzadas de análisis.
       </p>
       <div class="flex gap-4 mt-8">
         <Button
@@ -39,7 +40,9 @@
       </div>
     </div>
     <div class="flex justify-center md:justify-end mt-8">
-      <div class="w-9/12 md:w-auto h-64 bg-gradient-to-br from-primary-100 to-primary-300 rounded-lg flex items-center justify-center">
+      <div
+        class="w-9/12 md:w-auto h-64 bg-gradient-to-br from-primary-100 to-primary-300 rounded-lg flex items-center justify-center"
+      >
         <i class="pi pi-file-edit text-6xl text-primary-600"></i>
       </div>
     </div>

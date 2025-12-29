@@ -267,7 +267,6 @@ import { useRouter } from 'vue-router'
 import { useQuestionStore } from '@/stores/questions'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import type { Question } from '@/types'
 
 // Components
 import Button from 'primevue/button'
@@ -383,7 +382,7 @@ const editQuestion = (id: number) => {
 }
 
 const confirmDelete = (id: number, questionText: string) => {
-  const textPreview = stripHtml(questionText).substring(0, 50) + '...'
+  const _textPreview = stripHtml(questionText).substring(0, 50) + '...'
 
   confirm.require({
     message: `¿Estás seguro de que quieres eliminar esta pregunta?`,

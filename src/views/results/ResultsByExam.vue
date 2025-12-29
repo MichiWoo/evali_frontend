@@ -226,7 +226,7 @@ const loadExams = async () => {
     const response = await api.get('/exams')
     exams.value = response.data.data || response.data // Handle both paginated and non-paginated responses
     console.log('Exams loaded:', exams.value)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exams:', error)
     toast.add({
       severity: 'error',
@@ -274,7 +274,7 @@ const loadExamResults = async () => {
     } else {
       console.error('API returned success: false', response)
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exam results:', error)
     toast.add({
       severity: 'error',
@@ -341,7 +341,7 @@ const exportExamResults = async (type: 'pdf' | 'excel') => {
       summary: 'Éxito',
       detail: `Resultados exportados como ${type.toUpperCase()} correctamente`,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error exporting exam results:', error)
     toast.add({
       severity: 'error',

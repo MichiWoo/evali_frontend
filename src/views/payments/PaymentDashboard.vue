@@ -340,22 +340,22 @@
 
 <!--
   Dashboard de Pagos (Administrador)
-  
+
   RESTRICCIONES DE ACCESO:
   - Requiere autenticación: Sí
   - Roles permitidos: Solo 'admin'
   - Permisos requeridos: Rol de administrador
-  
+
   RUTA: /payments
   META: { requiresAuth: true, requiresRole: ['admin'] }
-  
+
   DESCRIPCIÓN:
   Vista que muestra el resumen global de pagos y suscripciones del sistema.
   Permite:
   - Ver estadísticas globales de pagos
   - Ver métricas de suscripciones
   - Analizar ingresos y transacciones
-  
+
   NOTAS:
   - Solo administradores pueden acceder
   - Muestra datos globales del sistema, no datos personales
@@ -364,7 +364,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import ProgressBar from 'primevue/progressbar'
 import { useToast } from 'primevue/usetoast'
 import { useRoleGuard } from '@/composables/useRoleGuard'
 import PaymentChart from '@/components/charts/PaymentChart.vue'
@@ -476,7 +475,7 @@ const fetchData = async () => {
   try {
     loading.value = true
     await Promise.all([fetchStats(), fetchRecentPayments()])
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching dashboard data:', error)
     toast.add({
       severity: 'error',
@@ -504,7 +503,7 @@ const fetchStats = async () => {
       })
       router.push('/dashboard')
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching stats:', error)
   }
 }
@@ -521,7 +520,7 @@ const fetchRecentPayments = async () => {
       const payments = await subscriptionStore.getPaymentHistory({ per_page: 5 })
       recentPayments.value = payments || []
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching recent payments:', error)
   }
 }
@@ -687,7 +686,7 @@ onMounted(() => {
 })
 
 // Payment Methods List
-const paymentMethodsList = ref([
+const _paymentMethodsList = ref([
   {
     id: 1,
     method: 'card',
@@ -720,7 +719,7 @@ const paymentMethodsList = ref([
   },
 ])
 
-const getProgressBarFillWidth = (percentage: number) => {
+const _getProgressBarFillWidth = (percentage: number) => {
   return `${percentage}%`
 }
 

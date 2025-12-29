@@ -60,7 +60,7 @@ const hasActiveFilters = computed(() => {
   return !!filters.value.search
 })
 
-const activeFiltersCount = computed(() => {
+const _activeFiltersCount = computed(() => {
   return filters.value.search ? 1 : 0
 })
 
@@ -68,7 +68,7 @@ const activeFiltersCount = computed(() => {
 const loadStudents = async () => {
   try {
     await studentStore.fetchStudents()
-  } catch (err) {
+  } catch (_err) {
     console.error('Error loading students:', err)
   }
 }
@@ -153,7 +153,7 @@ const deleteStudent = (student) => {
           summary: 'Éxito',
           detail: 'Estudiante eliminado correctamente',
         })
-      } catch (err) {
+      } catch (_err) {
         console.error('Error deleting student:', err)
         toast.add({
           severity: 'error',
@@ -171,7 +171,7 @@ onMounted(async () => {
   // Cargar información de uso del plan
   try {
     await subscriptionStore.fetchUsage()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading subscription usage:', error)
   }
 })

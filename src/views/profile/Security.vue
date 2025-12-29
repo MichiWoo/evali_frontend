@@ -396,7 +396,7 @@ const loadUserInfo = async () => {
         authStore.setUser(user)
       }
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading user info:', error)
   }
 }

@@ -282,7 +282,7 @@ const loadExams = async () => {
   try {
     await examStore.fetchExams()
     availableExams.value = examStore.exams
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exams:', error)
   }
 }

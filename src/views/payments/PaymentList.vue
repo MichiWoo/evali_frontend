@@ -319,7 +319,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useSubscriptionStore } from '@/stores/subscriptions'
 import { useToast } from 'primevue/usetoast'
 import type { Payment, PaymentStats } from '@/types'
@@ -363,7 +363,7 @@ const filters = ref({
 })
 
 // Options
-const statusOptions = [
+const _statusOptions = [
   { label: 'Todos', value: null },
   { label: 'Exitoso', value: 'succeeded' },
   { label: 'Pendiente', value: 'pending' },
@@ -393,7 +393,7 @@ const fetchPayments = async () => {
     })
     payments.value = response || []
     totalPayments.value = payments.value.length
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching payments:', error)
     toast.add({
       severity: 'error',
@@ -409,7 +409,7 @@ const fetchPayments = async () => {
 const fetchStats = async () => {
   try {
     stats.value = await subscriptionStore.getPaymentStats()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching stats:', error)
     // Fallback to local calculation
     stats.value = {
@@ -477,7 +477,7 @@ const downloadInvoice = (payment?: Payment) => {
   })
 }
 
-const retryPayment = (payment: Payment) => {
+const retryPayment = (_payment: Payment) => {
   // TODO: Implement payment retry
   toast.add({
     severity: 'info',

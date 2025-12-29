@@ -95,7 +95,7 @@
 import { computed } from 'vue'
 import Badge from 'primevue/badge'
 
-const props = defineProps<{
+const _props = defineProps<{
   question: any
   questionNumber: number
 }>()

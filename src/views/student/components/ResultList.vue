@@ -25,13 +25,13 @@
 import ProgressSpinner from 'primevue/progressspinner'
 import ResultCard from './ResultCard.vue'
 
-const props = defineProps<{
+const _props = defineProps<{
   results: any[]
   isLoading?: boolean
   emptyMessage?: string
 }>()
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   'view-details': [result: any]
 }>()
 

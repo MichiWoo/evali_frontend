@@ -296,7 +296,7 @@ import Dialog from 'primevue/dialog'
 import Tag from 'primevue/tag'
 import ConfirmDialog from 'primevue/confirmdialog'
 
-const router = useRouter()
+const _router = useRouter()
 const notificationsStore = useNotificationsStore()
 const confirm = useConfirm()
 const toast = useToast()
@@ -358,7 +358,7 @@ const loadNotifications = async () => {
       pagination.value.current_page,
       pagination.value.per_page,
     )
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading notifications:', error)
     toast.add({
       severity: 'error',
@@ -369,7 +369,7 @@ const loadNotifications = async () => {
   }
 }
 
-const debouncedSearch = debounce(() => {
+const _debouncedSearch = debounce(() => {
   applyFilters()
 }, 500)
 
@@ -406,7 +406,7 @@ const markAsRead = async (id: number) => {
       life: 3000,
     })
     loadNotifications()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -429,7 +429,7 @@ const markSelectedAsRead = async () => {
       life: 3000,
     })
     loadNotifications()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -449,7 +449,7 @@ const markAllAsRead = async () => {
       detail: 'Todas las notificaciones marcadas como leídas',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error marking all notifications as read:', error)
     toast.add({
       severity: 'error',
@@ -492,7 +492,7 @@ const deleteNotification = async (id: number) => {
       detail: 'Notificación eliminada',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error deleting notification:', error)
     toast.add({
       severity: 'error',
@@ -516,7 +516,7 @@ const deleteSelectedNotifications = async () => {
       life: 3000,
     })
     loadNotifications()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error deleting notifications:', error)
     toast.add({
       severity: 'error',

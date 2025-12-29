@@ -193,12 +193,12 @@ import ProgressSpinner from 'primevue/progressspinner'
 import PlanCard from './PlanCard.vue'
 
 // Props
-const props = defineProps<{
+const _props = defineProps<{
   visible: boolean
 }>()
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   'update:visible': [value: boolean]
   close: []
   planSelected: [plan: Plan]

@@ -293,7 +293,6 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSubscriptionStore } from '@/stores/subscriptions'
 import { useToast } from 'primevue/usetoast'
-import type { Subscription } from '@/types'
 
 // Components
 import Button from 'primevue/button'
@@ -325,7 +324,7 @@ const fetchData = async () => {
       subscriptionStore.fetchSubscriptionHistory(),
       subscriptionStore.fetchUsage(),
     ])
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading subscription data:', error)
     toast.add({
       severity: 'error',
@@ -418,7 +417,7 @@ const cancelSubscription = async () => {
     })
     showCancelDialog.value = false
     await fetchData()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error cancelling subscription:', error)
     toast.add({
       severity: 'error',

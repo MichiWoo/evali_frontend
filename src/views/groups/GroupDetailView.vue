@@ -554,9 +554,9 @@
         label="Cancelar"
         icon="pi pi-times"
         @click="
-          showAddStudentsDialog = false;
-          selectedStudents = [];
-          searchQuery = '';
+          showAddStudentsDialog = false
+          selectedStudents = []
+          searchQuery = ''
         "
         severity="secondary"
         outlined
@@ -579,12 +579,10 @@ import { useGroupStore } from '@/stores/groups'
 import { useStudentStore } from '@/stores/students'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import type { Group } from '@/types'
 
 // Components
 import ProgressSpinner from 'primevue/progressspinner'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -592,7 +590,6 @@ import Message from 'primevue/message'
 import ConfirmDialog from 'primevue/confirmdialog'
 import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
-import Checkbox from 'primevue/checkbox'
 
 // Composables
 const route = useRoute()
@@ -827,7 +824,7 @@ const viewExam = (examId: number) => {
   router.push(`/exams/${examId}`)
 }
 
-const removeExam = async (examId: number) => {
+const removeExam = async (_examId: number) => {
   try {
     // TODO: Implementar desasignar examen
     toast.add({

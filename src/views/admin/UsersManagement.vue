@@ -333,15 +333,15 @@
 
 <!--
   Gestión de Usuarios (Admin)
-  
+
   RESTRICCIONES DE ACCESO:
   - Requiere autenticación: Sí
   - Roles permitidos: 'admin' únicamente
   - Permisos requeridos: Ninguno específico (solo rol admin)
-  
+
   RUTA: /admin/users
   META: { requiresAuth: true, requiresRole: ['admin'] }
-  
+
   DESCRIPCIÓN:
   Vista administrativa para gestionar todos los usuarios del sistema.
   Permite:
@@ -351,14 +351,14 @@
   - Eliminar usuarios
   - Filtrar y buscar usuarios
   - Asignar roles masivamente
-  
+
   NOTAS:
   - Solo administradores pueden acceder
   - Los profesores no tienen acceso a esta vista
   - Los estudiantes no pueden gestionar usuarios
 -->
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/users'
 import { useAuthStore } from '@/stores/auth'
@@ -393,7 +393,7 @@ import ExportUsersModal from '@/components/users/ExportUsersModal.vue'
 // Router and stores
 const router = useRouter()
 const userStore = useUserStore()
-const authStore = useAuthStore()
+const _authStore = useAuthStore()
 const { requireRole } = useRoleGuard()
 const confirm = useConfirm()
 const toast = useToast()
@@ -456,7 +456,7 @@ const loadUsers = async () => {
       role: filters.value.role,
       status: filters.value.status,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading users:', error)
     toast.add({
       severity: 'error',
@@ -491,7 +491,7 @@ const onPageChange = (event: any) => {
   loadUsers()
 }
 
-const onSort = (event: any) => {
+const onSort = (_event: any) => {
   // Handle sorting
   loadUsers()
 }
@@ -529,7 +529,7 @@ const deleteUser = async (user: any) => {
       life: 3000,
     })
     loadUsers()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -562,7 +562,7 @@ const bulkDeleteUsers = async () => {
       life: 3000,
     })
     loadUsers()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -588,7 +588,7 @@ const assignBulkRole = async () => {
       life: 3000,
     })
     loadUsers()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -614,7 +614,7 @@ const changeBulkStatus = async () => {
       life: 3000,
     })
     loadUsers()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -643,7 +643,7 @@ const handleExport = async (exportFilters: any) => {
       detail: 'Usuarios exportados correctamente',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

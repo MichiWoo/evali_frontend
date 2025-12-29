@@ -198,7 +198,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useGroupStore } from '@/stores/groups'
 import { useExamStore } from '@/stores/exams'
 import { useToast } from 'primevue/usetoast'
-import type { UpdateGroupRequest, Group } from '@/types'
+import type { UpdateGroupRequest } from '@/types'
 
 // Components
 import ProgressSpinner from 'primevue/progressspinner'
@@ -272,7 +272,7 @@ const loadExams = async () => {
   try {
     await examStore.fetchExams()
     availableExams.value = examStore.exams
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exams:', error)
   }
 }

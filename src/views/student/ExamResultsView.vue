@@ -189,7 +189,11 @@ const percentageClass = computed(() => {
 })
 
 function goBack() {
-  window.history.length > 1 ? router.back() : router.push('/student/results')
+  if (window.history.length > 1) {
+    router.back()
+  } else {
+    router.push('/student/results')
+  }
 }
 
 async function loadAttempt() {

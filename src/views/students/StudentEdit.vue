@@ -233,7 +233,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useStudentStore } from '@/stores/students'
 import { useGroupStore } from '@/stores/groups'
 import { useToast } from 'primevue/usetoast'
-import type { Student, Group } from '@/types'
+import type { Group } from '@/types'
 
 // Components
 import ProgressSpinner from 'primevue/progressspinner'
@@ -400,7 +400,7 @@ const loadGroups = async () => {
   try {
     await groupStore.fetchGroups()
     availableGroups.value = groupStore.groups
-  } catch (err) {
+  } catch (_err) {
     console.error('Error loading groups:', err)
   }
 }

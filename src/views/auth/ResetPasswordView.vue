@@ -151,7 +151,7 @@ const handleResetPassword = async () => {
         life: 5000,
       })
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Reset password error:', error)
 
     let errorMessage = 'Ha ocurrido un error al restablecer la contraseña'

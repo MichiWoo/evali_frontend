@@ -129,11 +129,11 @@ import Checkbox from 'primevue/checkbox'
 import Divider from 'primevue/divider'
 import type { GenerateExamParams } from '@/types'
 
-const props = defineProps<{
+const _props = defineProps<{
   modelValue: GenerateExamParams
 }>()
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   (e: 'update:modelValue', value: GenerateExamParams): void
 }>()
 

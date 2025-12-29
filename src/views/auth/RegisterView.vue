@@ -135,7 +135,7 @@ const handleRegister = async () => {
         life: 5000,
       })
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Register error:', error)
 
     let errorMessage = 'Ha ocurrido un error al registrarse'
@@ -218,7 +218,7 @@ const handleResendVerification = async () => {
       detail: 'Se ha enviado un nuevo enlace de verificación a tu correo electrónico.',
       life: 5000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

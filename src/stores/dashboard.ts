@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import api from '@/services/api'
-import type { User, Exam, Group, ExamAttempt } from '@/types'
+import type { Exam, ExamAttempt } from '@/types'
 
 export const useDashboardStore = defineStore('dashboard', () => {
   // State

@@ -5,7 +5,9 @@
         <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">
           Características Principales
         </div>
-        <span class="text-muted-color text-2xl">Todo lo que necesitas para gestionar tus evaluaciones</span>
+        <span class="text-muted-color text-2xl"
+          >Todo lo que necesitas para gestionar tus evaluaciones</span
+        >
       </div>
 
       <div class="col-span-12 md:col-span-12 lg:col-span-4 p-0 lg:pr-8 lg:pb-8 mt-6 lg:mt-0">
@@ -53,7 +55,9 @@
               <i class="pi pi-fw pi-palette !text-2xl text-cyan-700"></i>
             </div>
             <h5 class="mb-2 text-surface-900 dark:text-surface-0">Generación con IA</h5>
-            <span class="text-surface-600 dark:text-surface-200">Crea exámenes automáticamente usando inteligencia artificial.</span>
+            <span class="text-surface-600 dark:text-surface-200"
+              >Crea exámenes automáticamente usando inteligencia artificial.</span
+            >
           </div>
         </div>
       </div>
@@ -191,7 +195,9 @@
             <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">
               Listo para Usar
             </div>
-            <span class="text-surface-600 dark:text-surface-200">Comienza a crear exámenes en minutos, sin configuración complicada.</span>
+            <span class="text-surface-600 dark:text-surface-200"
+              >Comienza a crear exámenes en minutos, sin configuración complicada.</span
+            >
           </div>
         </div>
       </div>
@@ -218,7 +224,8 @@
               Seguro y Confiable
             </div>
             <span class="text-surface-600 dark:text-surface-200"
-              >Tus datos y evaluaciones están protegidos con las mejores prácticas de seguridad.</span
+              >Tus datos y evaluaciones están protegidos con las mejores prácticas de
+              seguridad.</span
             >
           </div>
         </div>
@@ -268,7 +275,8 @@
             class="text-gray-900 sm:line-height-2 md:line-height-4 text-2xl mt-6"
             style="max-width: 800px"
           >
-            "Evali ha transformado completamente la forma en que gestiono las evaluaciones. La interfaz es intuitiva y las herramientas de análisis son increíbles."
+            "Evali ha transformado completamente la forma en que gestiono las evaluaciones. La
+            interfaz es intuitiva y las herramientas de análisis son increíbles."
           </p>
         </div>
       </div>

@@ -215,7 +215,7 @@ const loadStats = async () => {
 
     // Update achievements based on stats
     updateAchievements()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading stats:', error)
   } finally {
     isLoading.value = false

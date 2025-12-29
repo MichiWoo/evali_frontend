@@ -38,9 +38,9 @@ const confirmPasswordError = ref('')
 
 // Computed
 const user = computed(() => authStore.user)
-const isAdmin = computed(() => authStore.isAdmin)
-const isProfessor = computed(() => authStore.isProfessor)
-const isStudent = computed(() => authStore.isStudent)
+const _isAdmin = computed(() => authStore.isAdmin)
+const _isProfessor = computed(() => authStore.isProfessor)
+const _isStudent = computed(() => authStore.isStudent)
 
 // Métodos
 const loadProfile = () => {
@@ -143,7 +143,7 @@ const saveProfile = async () => {
         life: 5000,
       })
     }
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -188,7 +188,7 @@ const changePassword = async () => {
         life: 5000,
       })
     }
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

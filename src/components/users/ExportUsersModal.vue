@@ -159,7 +159,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   'update:visible': [value: boolean]
   export: [filters: any]
 }>()

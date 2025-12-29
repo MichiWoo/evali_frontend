@@ -232,11 +232,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed, nextTick } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from 'primevue/usetoast'
-import api from '@/services/api'
-import axios from 'axios'
 import type { Group, Exam } from '@/types'
 import { Chart, registerables } from 'chart.js'
 
@@ -291,7 +289,7 @@ const loadGroups = async () => {
   try {
     const response = await api.getGroups()
     groups.value = (response.data as any).data || response.data // Handle both paginated and non-paginated responses
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading groups:', error)
   }
 }
@@ -300,7 +298,7 @@ const loadExams = async () => {
   try {
     const response = await api.getExams()
     exams.value = (response.data as any).data || response.data // Handle both paginated and non-paginated responses
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exams:', error)
   }
 }
@@ -333,7 +331,7 @@ const loadResults = async () => {
     } else {
       console.error('API returned success: false', response)
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading results:', error)
     toast.add({
       severity: 'error',
@@ -350,7 +348,7 @@ const exportResults = async (type: 'pdf' | 'excel') => {
     isExporting.value = true
     // TODO: Implement export functionality
     console.log('Exporting results as:', type)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error exporting results:', error)
     toast.add({
       severity: 'error',

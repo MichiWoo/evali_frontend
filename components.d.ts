@@ -23,6 +23,7 @@ declare module 'vue' {
     DisabledGroupCard: typeof import('./src/components/groups/DisabledGroupCard.vue')['default']
     Divider: typeof import('primevue/divider')['default']
     DocumentUploader: typeof import('./src/components/exams/ai/DocumentUploader.vue')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
     ExportUsersModal: typeof import('./src/components/users/ExportUsersModal.vue')['default']
     FeaturesWidget: typeof import('./src/components/landing/FeaturesWidget.vue')['default']
     FloatingConfigurator: typeof import('./src/components/FloatingConfigurator.vue')['default']
@@ -75,6 +76,7 @@ declare module 'vue' {
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
   export interface GlobalDirectives {
+    StyleClass: typeof import('primevue/styleclass')['default']
     Tooltip: typeof import('primevue/tooltip')['default']
   }
 }

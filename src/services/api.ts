@@ -167,7 +167,7 @@ class ApiService {
         password_confirmation: passwordData.new_password_confirmation,
       })
       return { ...response.data, success: true }
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Re-throw to let the caller handle it
       throw error
     }

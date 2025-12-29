@@ -377,12 +377,10 @@ import { useExamStore } from '@/stores/exams'
 import { useQuestionStore } from '@/stores/questions'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import type { Exam } from '@/types'
 
 // Components
 import ProgressSpinner from 'primevue/progressspinner'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -535,7 +533,7 @@ const formatDate = (dateString: string, includeTime: boolean = false) => {
   return new Date(dateString).toLocaleDateString('es-ES', options)
 }
 
-const getStatusLabel = (isActive: boolean) => {
+const _getStatusLabel = (isActive: boolean) => {
   return isActive ? 'Activo' : 'Inactivo'
 }
 

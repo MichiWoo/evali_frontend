@@ -61,7 +61,7 @@ import ProgressSpinner from 'primevue/progressspinner'
 import type { DocumentUpload } from '@/types'
 import { useAIExamGenerationStore } from '@/stores/aiExamGeneration'
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   (e: 'uploaded', document: DocumentUpload): void
 }>()
 

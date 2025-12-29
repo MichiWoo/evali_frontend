@@ -601,7 +601,7 @@ const formatDate = (dateString: string | null | undefined): string => {
       hour: '2-digit',
       minute: '2-digit',
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error formatting date:', error, dateString)
     return 'Fecha inválida'
   }

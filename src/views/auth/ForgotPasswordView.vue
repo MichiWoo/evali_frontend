@@ -76,7 +76,7 @@ const handleForgotPassword = async () => {
         life: 5000,
       })
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Forgot password error:', error)
 
     let errorMessage = 'Ha ocurrido un error al enviar el enlace de recuperación'

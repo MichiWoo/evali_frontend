@@ -1,14 +1,14 @@
 <!--
   Lista de Exámenes
-  
+
   RESTRICCIONES DE ACCESO:
   - Requiere autenticación: Sí
   - Roles permitidos: 'teacher', 'admin'
   - Permisos requeridos: Ninguno específico (solo rol)
-  
+
   RUTA: /exams
   META: { requiresAuth: true, requiresRole: ['teacher', 'admin'] }
-  
+
   DESCRIPCIÓN:
   Vista que muestra todos los exámenes creados por el profesor.
   Permite:
@@ -17,7 +17,7 @@
   - Editar exámenes existentes
   - Eliminar exámenes
   - Filtrar y buscar exámenes
-  
+
   NOTAS:
   - Los estudiantes ven sus exámenes disponibles en /student/exams
   - Los profesores solo ven sus propios exámenes
@@ -78,7 +78,7 @@ const hasActiveFilters = computed(() => {
   return !!filters.value.search
 })
 
-const activeFiltersCount = computed(() => {
+const _activeFiltersCount = computed(() => {
   return filters.value.search ? 1 : 0
 })
 
@@ -86,7 +86,7 @@ const activeFiltersCount = computed(() => {
 const loadExams = async () => {
   try {
     await examStore.fetchExams()
-  } catch (err) {
+  } catch (_err) {
     console.error('Error loading exams:', err)
     // El store maneja el error internamente
   }
@@ -127,7 +127,7 @@ const deleteExam = (exam: Exam) => {
           summary: 'Éxito',
           detail: 'Examen eliminado correctamente',
         })
-      } catch (err) {
+      } catch (_err) {
         console.error('Error deleting exam:', err)
         toast.add({
           severity: 'error',
@@ -140,7 +140,7 @@ const deleteExam = (exam: Exam) => {
 }
 
 // Helper functions
-const getStatusColor = (status: string) => {
+const _getStatusColor = (status: string) => {
   switch (status) {
     case 'published':
       return 'success'
@@ -155,7 +155,7 @@ const getStatusColor = (status: string) => {
   }
 }
 
-const getStatusLabel = (status: string) => {
+const _getStatusLabel = (status: string) => {
   switch (status) {
     case 'published':
       return 'Publicado'
@@ -170,7 +170,7 @@ const getStatusLabel = (status: string) => {
   }
 }
 
-const getTypeLabel = (type: string) => {
+const _getTypeLabel = (type: string) => {
   switch (type) {
     case 'quiz':
       return 'Quiz'
@@ -282,7 +282,7 @@ onMounted(async () => {
   // Cargar información de uso del plan
   try {
     await subscriptionStore.fetchUsage()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading subscription usage:', error)
   }
 })

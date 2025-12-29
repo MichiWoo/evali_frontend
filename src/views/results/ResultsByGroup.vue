@@ -223,7 +223,7 @@ const loadGroups = async () => {
     const response = await api.get('/groups')
     groups.value = response.data.data || response.data // Handle both paginated and non-paginated responses
     console.log('Groups loaded:', groups.value)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading groups:', error)
     toast.add({
       severity: 'error',
@@ -272,7 +272,7 @@ const loadGroupResults = async () => {
     } else {
       console.error('API returned success: false', response)
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading group results:', error)
     toast.add({
       severity: 'error',
@@ -289,7 +289,7 @@ const exportGroupResults = async (type: 'pdf' | 'excel') => {
     isExporting.value = true
     // TODO: Implement export functionality
     console.log('Exporting group results as:', type)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error exporting group results:', error)
     toast.add({
       severity: 'error',

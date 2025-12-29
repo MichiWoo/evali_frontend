@@ -410,7 +410,7 @@ const saveSettings = async () => {
       detail: 'Configuración guardada correctamente',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -426,7 +426,7 @@ const loadSettings = async () => {
   try {
     // TODO: Implement API call to load settings
     console.log('Loading notification settings...')
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading settings:', error)
   }
 }

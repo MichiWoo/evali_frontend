@@ -337,7 +337,7 @@ const fetchData = async () => {
       subscriptionStore.fetchSubscriptionHistory(),
       subscriptionStore.fetchUsage(),
     ])
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading subscription data:', error)
     toast.add({
       severity: 'error',

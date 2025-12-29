@@ -229,7 +229,7 @@ import Tag from 'primevue/tag'
 import ConfirmDialog from 'primevue/confirmdialog'
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   close: []
 }>()
 
@@ -305,7 +305,7 @@ const fetchPaymentMethods = async () => {
     loading.value = true
     const methods = await subscriptionStore.getPaymentMethods()
     paymentMethods.value = methods || []
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching payment methods:', error)
     toast.add({
       severity: 'error',
@@ -365,7 +365,7 @@ const addPaymentMethod = async () => {
     })
 
     cancelAddMethod()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error adding payment method:', error)
     toast.add({
       severity: 'error',
@@ -391,7 +391,7 @@ const setAsDefault = async (methodId: string) => {
       detail: 'El método de pago ha sido establecido como predeterminado',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error setting default method:', error)
     toast.add({
       severity: 'error',
@@ -423,7 +423,7 @@ const deletePaymentMethod = async () => {
       detail: 'El método de pago ha sido eliminado exitosamente',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error deleting payment method:', error)
     toast.add({
       severity: 'error',

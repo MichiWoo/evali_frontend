@@ -172,7 +172,7 @@ export const useSubscriptionStore = defineStore('subscriptions', () => {
     }
   }
 
-  const subscribeToPlan = async (planId: number, paymentMethod?: string) => {
+  const subscribeToPlan = async (planId: number, _paymentMethod?: string) => {
     try {
       loading.value = true
       error.value = null

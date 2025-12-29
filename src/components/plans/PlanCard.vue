@@ -96,7 +96,7 @@ import type { Plan } from '@/types'
 import Button from 'primevue/button'
 
 // Props
-const props = defineProps<{
+const _props = defineProps<{
   plan: Plan
   currentPlan?: Plan | null
   isSelected?: boolean
@@ -109,7 +109,7 @@ const props = defineProps<{
 }>()
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   select: [plan: Plan]
   action: [plan: Plan]
 }>()

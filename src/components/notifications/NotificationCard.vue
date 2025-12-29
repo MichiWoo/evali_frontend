@@ -116,7 +116,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // Emits
-const emit = defineEmits<{
+const _emit = defineEmits<{
   click: [notification: Notification]
   select: [id: number, selected: boolean]
   'mark-read': [id: number]
@@ -150,7 +150,7 @@ const markAsRead = async () => {
     await notificationsStore.markAsRead(props.notification.id)
     emit('mark-read', props.notification.id)
     showActionMenu.value = false
-  } catch (error) {
+  } catch (_error) {
     console.error('Error marking notification as read:', error)
   }
 }

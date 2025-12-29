@@ -49,7 +49,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import Dialog from 'primevue/dialog'
 import Button from 'primevue/button'
@@ -67,7 +66,7 @@ interface Props {
   }
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   title: 'Límite de Plan Alcanzado',
   message: 'Has alcanzado el límite de tu plan actual',
   description: 'Tu plan actual tiene límites en la cantidad de recursos que puedes crear.',
@@ -75,7 +74,7 @@ const props = withDefaults(defineProps<Props>(), {
   limitInfo: undefined,
 })
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   'update:modelValue': [value: boolean]
 }>()
 

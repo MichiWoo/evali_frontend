@@ -201,7 +201,7 @@ const tabs = ref([
 // Computed
 const notifications = computed(() => notificationsStore.notifications)
 const unreadCount = computed(() => notificationsStore.unreadCount)
-const recentNotifications = computed(() => notificationsStore.recentNotifications)
+const _recentNotifications = computed(() => notificationsStore.recentNotifications)
 const isLoading = computed(() => notificationsStore.isLoading)
 const getNotificationIcon = computed(() => notificationsStore.getNotificationIcon)
 const getNotificationSeverity = computed(() => notificationsStore.getNotificationSeverity)
@@ -236,7 +236,7 @@ const refreshNotifications = async () => {
       detail: 'Notificaciones actualizadas',
       life: 2000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error al actualizar notificaciones:', error)
     toast.add({
       severity: 'error',
@@ -256,7 +256,7 @@ const markAsRead = async (notificationId: number) => {
       detail: 'Notificación marcada como leída',
       life: 2000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error al marcar notificación como leída:', error)
     toast.add({
       severity: 'error',
@@ -276,7 +276,7 @@ const markAllAsRead = async () => {
       detail: 'Todas las notificaciones marcadas como leídas',
       life: 2000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error al marcar todas como leídas:', error)
     toast.add({
       severity: 'error',
@@ -296,7 +296,7 @@ const deleteNotification = async (notificationId: number) => {
       detail: 'Notificación eliminada',
       life: 2000,
     })
-  } catch (error) {
+  } catch (_error) {
     console.error('Error al eliminar notificación:', error)
     toast.add({
       severity: 'error',
@@ -428,7 +428,7 @@ onMounted(async () => {
     await notificationsStore.fetchNotifications()
     await notificationsStore.fetchUnreadCount()
     document.addEventListener('click', handleClickOutside)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error initializing notifications:', error)
   }
 })

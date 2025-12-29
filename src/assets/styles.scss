@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@/assets/layout/layout.scss';
+@use '@/assets/demo/demo.scss';
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss';
-@import '@/assets/layout/layout.scss';
-@import '@/assets/demo/demo.scss';

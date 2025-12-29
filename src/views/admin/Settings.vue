@@ -473,8 +473,8 @@ import InputSwitch from 'primevue/inputswitch'
 import Checkbox from 'primevue/checkbox'
 
 // Router and stores
-const router = useRouter()
-const authStore = useAuthStore()
+const _router = useRouter()
+const _authStore = useAuthStore()
 const { requireRole } = useRoleGuard()
 const toast = useToast()
 
@@ -601,7 +601,7 @@ const saveAllSettings = async () => {
       },
     }
 
-    const result = await apiService.updateSystemSettings(apiData)
+    const _result = await apiService.updateSystemSettings(apiData)
 
     // Update original settings to mark as saved
     originalSettings.value = JSON.parse(JSON.stringify(settings))

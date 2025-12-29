@@ -274,7 +274,7 @@ const loadRoles = async () => {
   try {
     await userStore.fetchRoles()
     availableRoles.value = userStore.roles
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading roles:', error)
     toast.add({
       severity: 'error',

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, nextTick } from 'vue'
+import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useToast } from 'primevue/usetoast'
@@ -18,7 +18,7 @@ const formData = reactive({
 })
 
 const isLoading = ref(false)
-const showPassword = ref(false)
+const _showPassword = ref(false)
 
 // Validaciones
 const emailError = ref('')

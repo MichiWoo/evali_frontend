@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import api from '@/services/api'
-import type { Student, Exam, ExamAttempt, StudentExam } from '@/types'
+import type { Student, Exam, ExamAttempt } from '@/types'
 
 export const useStudentStore = defineStore('students', () => {
   // State

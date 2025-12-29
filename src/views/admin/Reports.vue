@@ -335,7 +335,7 @@ const loadOverviewStats = async () => {
       overviewStats.completedExams = result.data.overview.completed_exams
       overviewStats.totalRevenue = result.data.overview.total_revenue
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading overview stats:', error)
     // Fallback to demo data
     overviewStats.totalUsers = 1250
@@ -402,7 +402,7 @@ const loadUserReports = async () => {
         },
       ]
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading user reports:', error)
     // Fallback to demo data
     userRegistrationData.value = {
@@ -461,7 +461,7 @@ const loadExamReports = async () => {
         completionRate: 'N/A',
       }))
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading exam reports:', error)
     // Fallback to demo data
     examPerformanceData.value = {
@@ -519,7 +519,7 @@ const loadPaymentReports = async () => {
         growth: 'N/A',
       }))
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading payment reports:', error)
     // Fallback to demo data
     revenueData.value = {
@@ -576,7 +576,7 @@ const loadSystemReports = async () => {
       systemMetrics.totalRequests = metrics.total_requests || 125000
       systemMetrics.errorRate = metrics.error_rate || 0.1
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading system reports:', error)
     // Fallback to demo data
     systemUsageData.value = {
@@ -609,7 +609,7 @@ const refreshAllData = async () => {
       detail: 'Datos actualizados correctamente',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -643,7 +643,7 @@ const exportAllReports = async () => {
       detail: 'Descarga iniciada',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

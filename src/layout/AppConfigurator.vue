@@ -10,22 +10,10 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <label class="text-sm font-medium text-surface-700 dark:text-surface-300">
-          Tema
-        </label>
+        <label class="text-sm font-medium text-surface-700 dark:text-surface-300"> Tema </label>
         <div class="flex gap-2">
-          <Button
-            label="Claro"
-            :outlined="isDarkTheme"
-            @click="setTheme('light')"
-            size="small"
-          />
-          <Button
-            label="Oscuro"
-            :outlined="!isDarkTheme"
-            @click="setTheme('dark')"
-            size="small"
-          />
+          <Button label="Claro" :outlined="isDarkTheme" @click="setTheme('light')" size="small" />
+          <Button label="Oscuro" :outlined="!isDarkTheme" @click="setTheme('dark')" size="small" />
         </div>
       </div>
     </div>
@@ -43,4 +31,3 @@ const setTheme = (theme: 'light' | 'dark') => {
   }
 }
 </script>
-

@@ -119,7 +119,7 @@ export const useAnswerAnalysisStore = defineStore('answerAnalysis', () => {
 
         await new Promise((resolve) => setTimeout(resolve, interval))
         return poll()
-      } catch (err) {
+      } catch {
         // Si no existe aún, esperar y reintentar
         if (attempts < maxAttempts) {
           await new Promise((resolve) => setTimeout(resolve, interval))

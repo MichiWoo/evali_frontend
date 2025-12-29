@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Question, CreateQuestionRequest, UpdateQuestionRequest, QuestionState } from '@/types'
+import type { Question, CreateQuestionRequest, UpdateQuestionRequest } from '@/types'
 import api from '@/services/api.ts'
 
 export const useQuestionStore = defineStore('questions', () => {

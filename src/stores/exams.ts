@@ -6,7 +6,6 @@ import type {
   UpdateExamRequest,
   CreateExamBackendRequest,
   UpdateExamBackendRequest,
-  PaginatedResponse,
 } from '@/types'
 import api from '@/services/api'
 

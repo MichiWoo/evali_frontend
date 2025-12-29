@@ -455,12 +455,9 @@ import { useRoute, useRouter } from 'vue-router'
 import { useStudentStore } from '@/stores/students'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import type { Student } from '@/types'
-
 // Components
 import ProgressSpinner from 'primevue/progressspinner'
 import Button from 'primevue/button'
-import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'

@@ -314,7 +314,7 @@
       :style="{ width: '90vw', maxWidth: '800px' }"
       header="Procesar Pago"
     >
-      <!-- <PaymentForm 
+      <!-- <PaymentForm
         v-if="selectedPlanForPayment"
         :plan="selectedPlanForPayment"
         :visible="showPaymentForm"
@@ -338,7 +338,6 @@ import Button from 'primevue/button'
 import ToggleSwitch from 'primevue/inputswitch'
 import Dialog from 'primevue/dialog'
 import Tag from 'primevue/tag'
-import ConfirmDialog from 'primevue/confirmdialog'
 import PlanComparison from '@/components/plans/PlanComparison.vue'
 
 // Router and stores
@@ -389,7 +388,7 @@ const fetchData = async () => {
       subscriptionStore.fetchPlans(),
       subscriptionStore.fetchCurrentSubscription(),
     ])
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading plans:', error)
     toast.add({
       severity: 'error',
@@ -497,7 +496,7 @@ const confirmPlanSelection = async () => {
     showPlanConfirmation.value = false
     selectedPlanForConfirmation.value = null
     await fetchData()
-  } catch (error) {
+  } catch (_error) {
     console.error('Error subscribing to plan:', error)
     toast.add({
       severity: 'error',
@@ -513,7 +512,7 @@ const cancelPlanSelection = () => {
   selectedPlanForConfirmation.value = null
 }
 
-const handlePaymentSuccess = (subscription: any) => {
+const _handlePaymentSuccess = (_subscription: any) => {
   showPaymentForm.value = false
   selectedPlanForPayment.value = null
   toast.add({
@@ -525,7 +524,7 @@ const handlePaymentSuccess = (subscription: any) => {
   fetchData()
 }
 
-const cancelPayment = () => {
+const _cancelPayment = () => {
   showPaymentForm.value = false
   selectedPlanForPayment.value = null
 }

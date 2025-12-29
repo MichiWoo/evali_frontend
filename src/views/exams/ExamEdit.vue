@@ -294,7 +294,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useExamStore } from '@/stores/exams'
 import { useGroupStore } from '@/stores/groups'
 import { useToast } from 'primevue/usetoast'
-import type { UpdateExamRequest, UpdateExamBackendRequest, Exam } from '@/types'
+import type { UpdateExamRequest, UpdateExamBackendRequest } from '@/types'
 import { formatDateToLocalISO } from '@/utils/date'
 
 // Components
@@ -370,7 +370,7 @@ const loadGroups = async () => {
   try {
     await groupStore.fetchGroups()
     availableGroups.value = groupStore.groups
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading groups:', error)
   }
 }

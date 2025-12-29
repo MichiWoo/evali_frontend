@@ -162,7 +162,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { useProfileStore } from '@/stores/profile'
 import type { ProfileUpdateRequest } from '@/stores/profile'
 
-const emit = defineEmits<{
+const _emit = defineEmits<{
   cancel: []
   success: []
 }>()
@@ -255,7 +255,7 @@ const handleSubmit = async () => {
     }
 
     emit('success')
-  } catch (error) {
+  } catch (_error) {
     console.error('Error updating profile:', error)
   }
 }
@@ -319,7 +319,7 @@ onMounted(async () => {
         avatarPreview.value = (profileStore.user as any).avatar
       }
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading profile:', error)
   }
 })

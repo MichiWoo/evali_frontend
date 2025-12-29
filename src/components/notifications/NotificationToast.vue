@@ -32,14 +32,14 @@ const checkForNewNotifications = async () => {
         showNotificationToast(notification)
       })
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error al verificar notificaciones:', error)
   }
 }
 
 const showNotificationToast = (notification: Notification) => {
   const severity = getNotificationSeverity(notification.type)
-  const icon = getNotificationIcon(notification.type)
+  const _icon = getNotificationIcon(notification.type)
 
   toast.add({
     severity,

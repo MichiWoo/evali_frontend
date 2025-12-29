@@ -302,7 +302,7 @@ const loadUser = async () => {
   try {
     const userId = parseInt(route.params.id as string)
     await userStore.fetchUser(userId)
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading user:', error)
     toast.add({
       severity: 'error',
@@ -331,7 +331,7 @@ const sendVerificationEmail = async () => {
       detail: 'Funcionalidad de envío de email en desarrollo',
       life: 3000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -366,7 +366,7 @@ const deleteUser = async () => {
       })
       router.push('/admin/users')
     }
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -413,7 +413,7 @@ const changePassword = async () => {
       life: 3000,
     })
     closePasswordDialog()
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

@@ -292,7 +292,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useQuestionStore } from '@/stores/questions'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
-import type { Question } from '@/types'
 
 // Components
 import Button from 'primevue/button'

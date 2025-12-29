@@ -17,7 +17,7 @@ const isLoading = ref(false)
 const isVerifying = ref(true)
 const isVerified = ref(false)
 const verificationError = ref('')
-const emailFromUrl = ref('')
+const _emailFromUrl = ref('')
 
 // Obtener parámetros de la URL
 const idFromUrl = ref('')
@@ -68,7 +68,7 @@ const verifyEmail = async () => {
     } else {
       verificationError.value = result?.error || 'Error al verificar el correo electrónico'
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Verify email error:', error)
 
     let errorMessage = 'Ha ocurrido un error al verificar tu correo electrónico'
@@ -127,7 +127,7 @@ const handleResendVerification = async () => {
       detail: 'Se ha enviado un nuevo enlace de verificación a tu correo electrónico.',
       life: 5000,
     })
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',

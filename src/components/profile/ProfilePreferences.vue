@@ -199,7 +199,7 @@ const loadPreferences = async () => {
     if (user?.meta?.preferences) {
       form.value = { ...form.value, ...user.meta.preferences }
     }
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading preferences:', error)
   }
 }

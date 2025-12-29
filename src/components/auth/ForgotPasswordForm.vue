@@ -50,7 +50,7 @@ import Button from 'primevue/button'
 import Message from 'primevue/message'
 import { useAuthStore } from '@/stores/auth'
 
-const router = useRouter()
+const _router = useRouter()
 const authStore = useAuthStore()
 
 const form = reactive({

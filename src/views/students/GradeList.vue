@@ -183,7 +183,7 @@ async function loadOptions() {
       (exams as any)?.data?.data || (exams as any)?.data || (Array.isArray(exams) ? exams : [])
     groupOptions.value = groupsArray
     examOptions.value = examsArray
-  } catch (e) {
+  } catch (_e) {
     // ignore silently for now
   }
 }
@@ -202,7 +202,7 @@ async function loadData() {
       ...r,
       completed_at: r.completed_at ? new Date(r.completed_at).toLocaleString() : '',
     }))
-  } catch (error) {
+  } catch (_error) {
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -233,7 +233,7 @@ async function onExport(type: 'excel' | 'pdf') {
     link.click()
     document.body.removeChild(link)
     window.URL.revokeObjectURL(url)
-  } catch (e) {
+  } catch (_e) {
     toast.add({ severity: 'error', summary: 'Error', detail: 'No se pudo exportar', life: 3000 })
   } finally {
     isExporting.value = false

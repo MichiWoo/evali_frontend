@@ -399,7 +399,7 @@ const loadGroups = async () => {
   try {
     await groupStore.fetchGroups()
     availableGroups.value = groupStore.groups
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading groups:', error)
   }
 }

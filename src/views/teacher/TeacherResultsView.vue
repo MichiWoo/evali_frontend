@@ -599,7 +599,7 @@ const filteredResults = computed(() => {
 })
 
 const topStudents = computed(() => {
-  return recentResults.value
+  return [...recentResults.value]
     .sort((a, b) => b.score - a.score)
     .slice(0, 5)
     .map((r) => ({
@@ -610,7 +610,7 @@ const topStudents = computed(() => {
 })
 
 const lowPerformers = computed(() => {
-  return recentResults.value
+  return [...recentResults.value]
     .filter((r) => r.score < 60)
     .sort((a, b) => a.score - b.score)
     .slice(0, 5)
@@ -727,12 +727,13 @@ const loadResults = async () => {
     if (filters.value.groupId) params.append('group_id', filters.value.groupId.toString())
     if (filters.value.examId) params.append('exam_id', filters.value.examId.toString())
     if (filters.value.startDate)
-      params.append('start_date', formatDateForAPI(filters.value.startDate))
-    if (filters.value.endDate) params.append('end_date', formatDateForAPI(filters.value.endDate))
+      params.append('start_date', formatDateForAPI(filters.value.startDate as Date))
+    if (filters.value.endDate)
+      params.append('end_date', formatDateForAPI(filters.value.endDate as Date))
 
     const response = await api.getResultsStatistics(Object.fromEntries(params))
 
-    if (response.success) {
+    if (response && response.data) {
       const data = response.data
 
       statistics.value.totalExams = data.statistics.total_exams
@@ -843,15 +844,15 @@ const formatTime = (date: string) => {
   })
 }
 
-const formatDateForAPI = (date: Date) => {
-  return date.toISOString().split('T')[0]
+const formatDateForAPI = (date: Date): string => {
+  return date.toISOString().split('T')[0] || ''
 }
 
 const viewResultDetails = (result: any) => {
   router.push(`/student/results/${result.id}`)
 }
 
-const downloadResult = (result: any) => {
+const downloadResult = (_result: any) => {
   // TODO: Implement download functionality
   toast.add({
     severity: 'info',
@@ -885,18 +886,20 @@ const updateChartsWithRealData = (data: any) => {
         data.grade_distribution?.deficient || 0,
         data.grade_distribution?.failed || 0,
       ]
-      chart.data.datasets[0].data = gradeData
-      chart.update()
+      if (chart.data.datasets && chart.data.datasets[0]) {
+        chart.data.datasets[0].data = gradeData
+        chart.update()
+      }
     }
   }
 
   // Update groups chart
   if (groupsChart.value) {
     const chart = Chart.getChart(groupsChart.value)
-    if (chart) {
+    if (chart && chart.data.datasets && chart.data.datasets[0]) {
       const groups = data.performance_by_group || []
-      chart.data.labels = groups.map((group: any) => group.name)
-      chart.data.datasets[0].data = groups.map((group: any) => group.average_score)
+      chart.data.labels = groups.map((group: any) => group.name || '')
+      chart.data.datasets[0].data = groups.map((group: any) => group.average_score || 0)
       chart.update()
     }
   }
@@ -904,10 +907,10 @@ const updateChartsWithRealData = (data: any) => {
   // Update trend chart
   if (trendChart.value) {
     const chart = Chart.getChart(trendChart.value)
-    if (chart) {
+    if (chart && chart.data.datasets && chart.data.datasets[0]) {
       const trendData = data.trend_data || []
-      chart.data.labels = trendData.map((item: any) => item.month)
-      chart.data.datasets[0].data = trendData.map((item: any) => item.average_score)
+      chart.data.labels = trendData.map((item: any) => item.month || '')
+      chart.data.datasets[0].data = trendData.map((item: any) => item.average_score || 0)
       chart.update()
     }
   }
@@ -915,10 +918,10 @@ const updateChartsWithRealData = (data: any) => {
   // Update exams chart
   if (examsChart.value) {
     const chart = Chart.getChart(examsChart.value)
-    if (chart) {
+    if (chart && chart.data.datasets && chart.data.datasets[0]) {
       const groups = data.performance_by_group || []
-      chart.data.labels = groups.map((group: any) => group.name)
-      chart.data.datasets[0].data = groups.map((group: any) => group.total_attempts)
+      chart.data.labels = groups.map((group: any) => group.name || '')
+      chart.data.datasets[0].data = groups.map((group: any) => group.total_attempts || 0)
       chart.update()
     }
   }

@@ -35,4 +35,22 @@ export default defineConfigWithVueTs(
   skipFormatting,
 
   ...pluginOxlint.configs['flat/recommended'],
+
+  {
+    name: 'app/custom-rules',
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_'
+      }],
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+      'vue/multi-word-component-names': 'off',
+      'vue/block-lang': 'off',
+      'vue/no-side-effects-in-computed-properties': 'warn',
+    },
+  },
 )
