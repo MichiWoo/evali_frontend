@@ -625,7 +625,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-@reference "tailwindcss";
+@import "tailwindcss";
 
 .stats-card {
   @apply bg-white dark:bg-surface-800 p-4 rounded-lg border border-surface-200 dark:border-surface-700;

@@ -1128,7 +1128,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-@reference "tailwindcss";
+@import "tailwindcss";
 
 .teacher-results-view {
   padding: 1.5rem;
