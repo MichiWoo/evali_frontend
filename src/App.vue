@@ -2,19 +2,20 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { RouterView } from 'vue-router'
-import AppLayout from '@/components/layout/AppLayout.vue'
+import AppLayout from '@/layout/AppLayout.vue'
 
 const route = useRoute()
 
 const useLayout = computed(() => {
-  // Usar layout para todas las rutas excepto las de autenticación
-  return !route.path.startsWith('/auth') && !route.path.startsWith('/register') && !route.path.startsWith('/forgot-password') && !route.path.startsWith('/reset-password')
+  return route.meta.layout === 'AppLayout'
 })
 </script>
 
 <template>
   <div id="app">
-    <AppLayout v-if="useLayout" />
+    <AppLayout v-if="useLayout">
+      <RouterView />
+    </AppLayout>
     <RouterView v-else />
   </div>
 </template>
@@ -31,23 +32,12 @@ const useLayout = computed(() => {
 
 body {
   margin: 0;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: var(--p-color-text);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 600;
   line-height: 1.2;
@@ -70,9 +60,7 @@ button {
   font-family: inherit;
 }
 
-input,
-textarea,
-select {
+input, textarea, select {
   font-family: inherit;
 }
 </style>
