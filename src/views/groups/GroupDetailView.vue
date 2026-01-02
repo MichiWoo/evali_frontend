@@ -554,9 +554,9 @@
         label="Cancelar"
         icon="pi pi-times"
         @click="
-          showAddStudentsDialog = false
-          selectedStudents = []
-          searchQuery = ''
+          showAddStudentsDialog = false;
+          selectedStudents = [];
+          searchQuery = '';
         "
         severity="secondary"
         outlined
