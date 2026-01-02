@@ -8,6 +8,7 @@ import ToastService from 'primevue/toastservice'
 import ConfirmationService from 'primevue/confirmationservice'
 import StyleClass from 'primevue/styleclass'
 import Tooltip from 'primevue/tooltip'
+import 'primeicons/primeicons.css'
 
 // Initialize API service FIRST to ensure interceptors are configured
 import '@/services/api.ts'
@@ -26,7 +27,7 @@ app.use(PrimeVue, {
     preset: Aura,
     options: {
       prefix: 'p',
-      darkModeSelector: 'system',
+      darkModeSelector: '.app-dark',
       cssLayer: false,
     },
   },

@@ -1,16 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-// Tailwind CSS v4 tiene una nueva sintaxis, pero mantenemos compatibilidad con v3
+import PrimeUI from 'tailwindcss-primeui';
+
 export default {
+  darkMode: ['selector', '[class*="app-dark"]'],
   content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
   ],
+  plugins: [PrimeUI],
   theme: {
-    extend: {},
-  },
-  plugins: [
-    // tailwindcss-primeui debería funcionar con v4
-    require('tailwindcss-primeui')
-  ],
-}
+    screens: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+      '2xl': '1920px'
+    }
+  }
+};
 

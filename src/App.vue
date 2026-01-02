@@ -7,15 +7,14 @@ import AppLayout from '@/components/layout/AppLayout.vue'
 const route = useRoute()
 
 const useLayout = computed(() => {
-  return route.meta.layout === 'AppLayout'
+  // Usar layout para todas las rutas excepto las de autenticación
+  return !route.path.startsWith('/auth') && !route.path.startsWith('/register') && !route.path.startsWith('/forgot-password') && !route.path.startsWith('/reset-password')
 })
 </script>
 
 <template>
   <div id="app">
-    <AppLayout v-if="useLayout">
-      <RouterView />
-    </AppLayout>
+    <AppLayout v-if="useLayout" />
     <RouterView v-else />
   </div>
 </template>
