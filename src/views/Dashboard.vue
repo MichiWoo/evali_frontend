@@ -13,9 +13,14 @@
             <div class="flex justify-between mb-4">
               <div>
                 <span class="block text-muted-color font-medium mb-4">Exámenes</span>
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{ examCount }}</div>
+                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+                  {{ examCount }}
+                </div>
               </div>
-              <div class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+              <div
+                class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border"
+                style="width: 2.5rem; height: 2.5rem"
+              >
                 <i class="pi pi-file-edit text-blue-500 !text-xl"></i>
               </div>
             </div>
@@ -29,9 +34,14 @@
             <div class="flex justify-between mb-4">
               <div>
                 <span class="block text-muted-color font-medium mb-4">Preguntas</span>
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{ questionCount }}</div>
+                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+                  {{ questionCount }}
+                </div>
               </div>
-              <div class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+              <div
+                class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
+                style="width: 2.5rem; height: 2.5rem"
+              >
                 <i class="pi pi-question-circle text-orange-500 !text-xl"></i>
               </div>
             </div>
@@ -45,9 +55,14 @@
             <div class="flex justify-between mb-4">
               <div>
                 <span class="block text-muted-color font-medium mb-4">Grupos</span>
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{ groupCount }}</div>
+                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+                  {{ groupCount }}
+                </div>
               </div>
-              <div class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+              <div
+                class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
+                style="width: 2.5rem; height: 2.5rem"
+              >
                 <i class="pi pi-users text-cyan-500 !text-xl"></i>
               </div>
             </div>
@@ -61,9 +76,14 @@
             <div class="flex justify-between mb-4">
               <div>
                 <span class="block text-muted-color font-medium mb-4">Estudiantes</span>
-                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">{{ totalStudents }}</div>
+                <div class="text-surface-900 dark:text-surface-0 font-medium text-xl">
+                  {{ totalStudents }}
+                </div>
               </div>
-              <div class="flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-border" style="width: 2.5rem; height: 2.5rem">
+              <div
+                class="flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-border"
+                style="width: 2.5rem; height: 2.5rem"
+              >
                 <i class="pi pi-user text-green-500 !text-xl"></i>
               </div>
             </div>
@@ -95,11 +115,7 @@
             <i class="pi pi-file-edit text-4xl text-muted-color mb-4"></i>
             <h3 class="text-xl font-medium mb-2">No hay exámenes</h3>
             <p class="text-muted-color mb-4">Crea tu primer examen para comenzar</p>
-            <Button
-              label="Crear Examen"
-              icon="pi pi-plus"
-              @click="$router.push('/exams/create')"
-            />
+            <Button label="Crear Examen" icon="pi pi-plus" @click="$router.push('/exams/create')" />
           </div>
 
           <DataTable
@@ -113,8 +129,12 @@
             <Column header="Examen" style="width: 45%">
               <template #body="slotProps">
                 <div class="flex flex-col">
-                  <span class="font-medium text-surface-900 dark:text-surface-0">{{ slotProps.data.title }}</span>
-                  <span class="text-sm text-muted-color">{{ slotProps.data.description || 'Sin descripción' }}</span>
+                  <span class="font-medium text-surface-900 dark:text-surface-0">{{
+                    slotProps.data.title
+                  }}</span>
+                  <span class="text-sm text-muted-color">{{
+                    slotProps.data.description || 'Sin descripción'
+                  }}</span>
                 </div>
               </template>
             </Column>
@@ -162,12 +182,7 @@
                 class="p-button-text p-button-plain p-button-rounded"
                 @click="activityMenu.toggle($event)"
               />
-              <Menu
-                ref="activityMenu"
-                popup
-                :model="activityMenuItems"
-                class="!min-w-40"
-              />
+              <Menu ref="activityMenu" popup :model="activityMenuItems" class="!min-w-40" />
             </div>
           </div>
 
@@ -185,7 +200,9 @@
                 :key="activity.id"
                 class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
               >
-                <div class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-full mr-4 shrink-0">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-full mr-4 shrink-0"
+                >
                   <i :class="getActivityIcon(activity)" class="!text-xl text-blue-500"></i>
                 </div>
                 <div class="flex-1">
@@ -211,7 +228,9 @@
                   :key="activity.id"
                   class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
                 >
-                  <div class="w-12 h-12 flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-full mr-4 shrink-0">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-full mr-4 shrink-0"
+                  >
                     <i :class="getActivityIcon(activity)" class="!text-xl text-orange-500"></i>
                   </div>
                   <div class="flex-1">
@@ -238,7 +257,9 @@
                   :key="activity.id"
                   class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
                 >
-                  <div class="w-12 h-12 flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-full mr-4 shrink-0">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-full mr-4 shrink-0"
+                  >
                     <i :class="getActivityIcon(activity)" class="!text-xl text-green-500"></i>
                   </div>
                   <div class="flex-1">
@@ -269,12 +290,7 @@
               class="p-button-text p-button-plain p-button-rounded"
               @click="notificationsMenu.toggle($event)"
             />
-            <Menu
-              ref="notificationsMenu"
-              popup
-              :model="notificationMenuItems"
-              class="!min-w-40"
-            />
+            <Menu ref="notificationsMenu" popup :model="notificationMenuItems" class="!min-w-40" />
           </div>
         </div>
 
@@ -293,7 +309,9 @@
               class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
               @click="markAsRead(notification.id)"
             >
-              <div class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-full mr-4 shrink-0">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-full mr-4 shrink-0"
+              >
                 <i :class="getNotificationIcon(notification)" class="!text-xl text-blue-500"></i>
               </div>
               <div class="flex-1">
@@ -321,8 +339,13 @@
                 class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
                 @click="markAsRead(notification.id)"
               >
-                <div class="w-12 h-12 flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-full mr-4 shrink-0">
-                  <i :class="getNotificationIcon(notification)" class="!text-xl text-orange-500"></i>
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-full mr-4 shrink-0"
+                >
+                  <i
+                    :class="getNotificationIcon(notification)"
+                    class="!text-xl text-orange-500"
+                  ></i>
                 </div>
                 <div class="flex-1">
                   <span class="text-surface-900 dark:text-surface-0 leading-normal font-medium">
@@ -335,7 +358,10 @@
                     {{ formatTime(notification.created_at) }}
                   </div>
                 </div>
-                <div v-if="!notification.is_read" class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <div
+                  v-if="!notification.is_read"
+                  class="w-2 h-2 bg-primary rounded-full mr-2"
+                ></div>
               </li>
             </ul>
           </template>
@@ -350,7 +376,9 @@
                 class="flex items-center py-2 border-b border-surface cursor-pointer hover:bg-surface-50 dark:hover:bg-surface-800 rounded-lg transition-colors"
                 @click="markAsRead(notification.id)"
               >
-                <div class="w-12 h-12 flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-full mr-4 shrink-0">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-green-100 dark:bg-green-400/10 rounded-full mr-4 shrink-0"
+                >
                   <i :class="getNotificationIcon(notification)" class="!text-xl text-green-500"></i>
                 </div>
                 <div class="flex-1">
@@ -364,14 +392,15 @@
                     {{ formatTime(notification.created_at) }}
                   </div>
                 </div>
-                <div v-if="!notification.is_read" class="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                <div
+                  v-if="!notification.is_read"
+                  class="w-2 h-2 bg-primary rounded-full mr-2"
+                ></div>
               </li>
             </ul>
           </template>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
@@ -416,7 +445,7 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import Menu from 'primevue/menu'
 
-const router = useRouter()
+const _router = useRouter()
 const authStore = useAuthStore()
 const { requireRole } = useRoleGuard()
 const examStore = useExamStore()
@@ -434,32 +463,34 @@ const recentExams = computed(() => dashboardStore.recentExams)
 
 // Dashboard data
 const totalStudents = computed(() => dashboardStore.userStats?.total_students || 0)
-const totalAttempts = computed(() => dashboardStore.userStats?.total_attempts || 0)
-const averageScore = computed(() => dashboardStore.averageScore)
-const completionRate = computed(() => dashboardStore.completionRate)
+const _totalAttempts = computed(() => dashboardStore.userStats?.total_attempts || 0)
+const _averageScore = computed(() => dashboardStore.averageScore)
+const _completionRate = computed(() => dashboardStore.completionRate)
 const recentActivity = computed(() => dashboardStore.recentActivity)
 const notifications = computed(() => dashboardStore.notifications)
 
 // Groups data
 const groupCount = computed(() => groupStore.groups?.length || 0)
-const activeGroups = computed(() => groupStore.groups?.filter(group => group.status === 'active')?.length || 0)
+const activeGroups = computed(
+  () => groupStore.groups?.filter((group) => group.status === 'active')?.length || 0,
+)
 
 // State
-const showAllActivity = ref(false)
-const showAllNotifications = ref(false)
+const _showAllActivity = ref(false)
+const _showAllNotifications = ref(false)
 const notificationsMenu = ref(null)
 const activityMenu = ref(null)
 
 // Menu items for notifications
 const notificationMenuItems = ref([
   { label: 'Marcar todas como leídas', icon: 'pi pi-fw pi-check' },
-  { label: 'Ver todas las notificaciones', icon: 'pi pi-fw pi-arrow-right' }
+  { label: 'Ver todas las notificaciones', icon: 'pi pi-fw pi-arrow-right' },
 ])
 
 // Menu items for activity
 const activityMenuItems = ref([
   { label: 'Actualizar actividad', icon: 'pi pi-fw pi-refresh' },
-  { label: 'Ver toda la actividad', icon: 'pi pi-fw pi-arrow-right' }
+  { label: 'Ver toda la actividad', icon: 'pi pi-fw pi-arrow-right' },
 ])
 
 // Methods
@@ -494,7 +525,7 @@ const getTodayNotifications = () => {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
 
-  return notifications.value.filter(notification => {
+  return notifications.value.filter((notification) => {
     const notificationDate = new Date(notification.created_at)
     notificationDate.setHours(0, 0, 0, 0)
     return notificationDate.getTime() === today.getTime()
@@ -506,7 +537,7 @@ const getYesterdayNotifications = () => {
   yesterday.setDate(yesterday.getDate() - 1)
   yesterday.setHours(0, 0, 0, 0)
 
-  return notifications.value.filter(notification => {
+  return notifications.value.filter((notification) => {
     const notificationDate = new Date(notification.created_at)
     notificationDate.setHours(0, 0, 0, 0)
     return notificationDate.getTime() === yesterday.getTime()
@@ -518,7 +549,7 @@ const getOlderNotifications = () => {
   yesterday.setDate(yesterday.getDate() - 1)
   yesterday.setHours(0, 0, 0, 0)
 
-  return notifications.value.filter(notification => {
+  return notifications.value.filter((notification) => {
     const notificationDate = new Date(notification.created_at)
     return notificationDate.getTime() < yesterday.getTime()
   })
@@ -527,13 +558,13 @@ const getOlderNotifications = () => {
 const getNotificationIcon = (notification: any) => {
   // Map notification types to icons
   const iconMap: Record<string, string> = {
-    'exam_created': 'pi pi-file-edit',
-    'exam_completed': 'pi pi-check-circle',
-    'exam_assigned': 'pi pi-send',
-    'student_joined': 'pi pi-user-plus',
-    'grade_available': 'pi pi-chart-line',
-    'system': 'pi pi-cog',
-    'default': 'pi pi-bell'
+    exam_created: 'pi pi-file-edit',
+    exam_completed: 'pi pi-check-circle',
+    exam_assigned: 'pi pi-send',
+    student_joined: 'pi pi-user-plus',
+    grade_available: 'pi pi-chart-line',
+    system: 'pi pi-cog',
+    default: 'pi pi-bell',
   }
 
   return notification.icon || iconMap[notification.type] || iconMap.default
@@ -544,7 +575,7 @@ const getTodayActivities = () => {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
 
-  return recentActivity.value.filter(activity => {
+  return recentActivity.value.filter((activity) => {
     const activityDate = new Date(activity.timestamp)
     activityDate.setHours(0, 0, 0, 0)
     return activityDate.getTime() === today.getTime()
@@ -556,7 +587,7 @@ const getYesterdayActivities = () => {
   yesterday.setDate(yesterday.getDate() - 1)
   yesterday.setHours(0, 0, 0, 0)
 
-  return recentActivity.value.filter(activity => {
+  return recentActivity.value.filter((activity) => {
     const activityDate = new Date(activity.timestamp)
     activityDate.setHours(0, 0, 0, 0)
     return activityDate.getTime() === yesterday.getTime()
@@ -568,7 +599,7 @@ const getOlderActivities = () => {
   yesterday.setDate(yesterday.getDate() - 1)
   yesterday.setHours(0, 0, 0, 0)
 
-  return recentActivity.value.filter(activity => {
+  return recentActivity.value.filter((activity) => {
     const activityDate = new Date(activity.timestamp)
     return activityDate.getTime() < yesterday.getTime()
   })
@@ -577,12 +608,12 @@ const getOlderActivities = () => {
 const getActivityIcon = (activity: any) => {
   // Map activity types to icons
   const iconMap: Record<string, string> = {
-    'exam_created': 'pi pi-file-edit',
-    'exam_submitted': 'pi pi-check',
-    'student_joined': 'pi pi-user-plus',
-    'question_added': 'pi pi-question-circle',
-    'group_created': 'pi pi-users',
-    'default': 'pi pi-clock'
+    exam_created: 'pi pi-file-edit',
+    exam_submitted: 'pi pi-check',
+    student_joined: 'pi pi-user-plus',
+    question_added: 'pi pi-question-circle',
+    group_created: 'pi pi-users',
+    default: 'pi pi-clock',
   }
 
   return activity.icon || iconMap[activity.type] || iconMap.default
@@ -600,7 +631,10 @@ onMounted(async () => {
     return // Ya redirigió y mostró mensaje de error
   }
 
-  console.log('DashboardView onMounted - Token in localStorage:', localStorage.getItem('auth_token'))
+  console.log(
+    'DashboardView onMounted - Token in localStorage:',
+    localStorage.getItem('auth_token'),
+  )
   console.log('DashboardView onMounted - User in authStore:', authStore.user)
   console.log('DashboardView onMounted - IsAuthenticated:', authStore.isAuthenticated)
 
@@ -609,7 +643,7 @@ onMounted(async () => {
       examStore.fetchExams(),
       questionStore.fetchQuestions(),
       dashboardStore.fetchDashboardData(),
-      groupStore.fetchGroups()
+      groupStore.fetchGroups(),
     ])
   } catch (error) {
     console.error('Error loading dashboard data:', error)
@@ -663,7 +697,6 @@ onMounted(async () => {
   font-size: 1.25rem;
   font-weight: 600;
 }
-
 
 /* Activity and notification styles now handled by Tailwind CSS classes */
 

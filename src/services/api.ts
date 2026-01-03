@@ -160,17 +160,12 @@ class ApiService {
     new_password: string
     new_password_confirmation: string
   }): Promise<{ success: boolean; message?: string; data?: any }> {
-    try {
-      const response: AxiosResponse<{ message: string }> = await this.api.put('/profile/password', {
-        current_password: passwordData.current_password,
-        password: passwordData.new_password,
-        password_confirmation: passwordData.new_password_confirmation,
-      })
-      return { ...response.data, success: true }
-    } catch (error: unknown) {
-      // Re-throw to let the caller handle it
-      throw error
-    }
+    const response: AxiosResponse<{ message: string }> = await this.api.put('/profile/password', {
+      current_password: passwordData.current_password,
+      password: passwordData.new_password,
+      password_confirmation: passwordData.new_password_confirmation,
+    })
+    return { ...response.data, success: true }
   }
 
   // User endpoints
