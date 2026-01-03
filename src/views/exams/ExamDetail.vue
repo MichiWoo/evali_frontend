@@ -293,7 +293,7 @@
           <Column field="text" header="Pregunta" style="width: 45%">
             <template #body="slotProps">
               <div
-                class="question-text-preview text-truncate max-w-md"
+                class="question-text-preview"
                 v-html="slotProps.data.text"
                 :title="stripHtml(slotProps.data.text)"
               ></div>
@@ -589,22 +589,47 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.text-truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .question-text-preview {
   line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .question-text-preview :deep(p) {
-  margin: 0;
-  display: inline;
+  margin: 0.5em 0;
+  display: block;
+}
+
+.question-text-preview :deep(p:first-child) {
+  margin-top: 0;
+}
+
+.question-text-preview :deep(p:last-child) {
+  margin-bottom: 0;
 }
 
 .question-text-preview :deep(strong) {
   font-weight: 600;
+}
+
+/* Limitar el tamaño de las imágenes en la vista previa de preguntas */
+.question-text-preview :deep(img) {
+  max-width: 300px !important;
+  max-height: 250px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 8px 0;
+}
+
+/* Hacer que las imágenes se vean mejor al pasar el mouse */
+.question-text-preview :deep(img:hover) {
+  border-color: #06c;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
 }
 </style>

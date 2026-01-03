@@ -634,4 +634,35 @@ onMounted(() => {
 .field {
   margin-bottom: 1.5rem;
 }
+
+/* Limitar el tamaño de las imágenes en el editor para que no ocupen todo el ancho */
+:deep(.ql-editor img) {
+  max-width: 400px !important;
+  max-height: 300px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 8px 0;
+  vertical-align: middle;
+  resize: both;
+  overflow: auto;
+  min-width: 150px;
+  min-height: 100px;
+}
+
+/* Hacer que las imágenes se puedan seleccionar fácilmente */
+:deep(.ql-editor img:hover) {
+  border-color: #06c;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+/* Asegurar que el contenedor del editor no fuerce el ancho completo */
+:deep(.ql-editor) {
+  word-wrap: break-word;
+}
 </style>
