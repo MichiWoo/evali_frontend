@@ -339,6 +339,12 @@
                   class="p-button-rounded p-button-text p-button-sm"
                   v-tooltip.top="'Editar pregunta'"
                 />
+                <Button
+                  icon="pi pi-trash"
+                  @click="confirmDeleteQuestion(slotProps.data.id, slotProps.data.text)"
+                  class="p-button-rounded p-button-text p-button-danger p-button-sm"
+                  v-tooltip.top="'Eliminar pregunta'"
+                />
               </div>
             </template>
           </Column>
@@ -513,6 +519,35 @@ const viewQuestion = (questionId: number) => {
 
 const editQuestion = (questionId: number) => {
   router.push(`/questions/${questionId}/edit`)
+}
+
+const confirmDeleteQuestion = (questionId: number, _questionText: string) => {
+  confirm.require({
+    message: `¿Estás seguro de que quieres eliminar esta pregunta del examen? Esta acción no se puede deshacer.`,
+    header: 'Confirmar eliminación',
+    icon: 'pi pi-exclamation-triangle',
+    acceptClass: 'p-button-danger',
+    accept: async () => {
+      try {
+        await questionStore.deleteQuestion(questionId)
+        toast.add({
+          severity: 'success',
+          summary: 'Éxito',
+          detail: 'Pregunta eliminada correctamente',
+          life: 3000,
+        })
+        // Reload exam to refresh questions list
+        await loadExam()
+      } catch (err: any) {
+        toast.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: err.message || 'Error al eliminar la pregunta',
+          life: 5000,
+        })
+      }
+    },
+  })
 }
 
 // Utility functions

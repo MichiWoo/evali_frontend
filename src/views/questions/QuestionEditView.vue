@@ -417,10 +417,19 @@ const loadQuestion = async () => {
 
     // Populate options for multiple choice
     if (question.value.type === 'multiple_choice' && question.value.meta?.options) {
-      options.value = question.value.meta.options.map((opt) => ({
-        text: opt.text,
-        is_correct: opt.is_correct,
-      }))
+      options.value = question.value.meta.options.map((opt) => {
+        // Strip HTML tags from option text if present
+        let cleanText = opt.text || ''
+        // Remove HTML tags but preserve the text content
+        const tmp = document.createElement('DIV')
+        tmp.innerHTML = cleanText
+        cleanText = tmp.textContent || tmp.innerText || cleanText
+
+        return {
+          text: cleanText,
+          is_correct: opt.is_correct,
+        }
+      })
     } else if (question.value.type === 'multiple_choice') {
       // If no options exist, create default ones
       options.value = [
@@ -605,7 +614,22 @@ const handleSubmit = async () => {
     if (err.response?.status === 422) {
       const validationErrors = err.response.data.errors
       Object.keys(validationErrors).forEach((key) => {
-        errors.value[key] = validationErrors[key][0]
+        // Handle nested errors (e.g., meta.options.0.text)
+        if (key.includes('.')) {
+          const parts = key.split('.')
+          if (parts[0] === 'meta' && parts[1] === 'options') {
+            // This is an option error
+            const optionIndex = parseInt(parts[2])
+            if (!isNaN(optionIndex) && options.value[optionIndex]) {
+              // Show error in the option
+              optionsError.value = validationErrors[key][0]
+            }
+          } else {
+            errors.value[key] = validationErrors[key][0]
+          }
+        } else {
+          errors.value[key] = validationErrors[key][0]
+        }
       })
     }
 
