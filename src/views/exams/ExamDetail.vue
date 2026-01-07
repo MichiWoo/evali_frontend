@@ -381,6 +381,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useExamStore } from '@/stores/exams'
 import { useQuestionStore } from '@/stores/questions'
+import { useAuthStore } from '@/stores/auth'
 import { useConfirm } from 'primevue/useconfirm'
 import { useToast } from 'primevue/usetoast'
 
@@ -398,6 +399,7 @@ const route = useRoute()
 const router = useRouter()
 const examStore = useExamStore()
 const questionStore = useQuestionStore()
+const authStore = useAuthStore()
 const confirm = useConfirm()
 const toast = useToast()
 
@@ -551,7 +553,7 @@ const confirmDeleteQuestion = (questionId: number, _questionText: string) => {
 }
 
 // Utility functions
-const formatDate = (dateString: string, includeTime: boolean = false) => {
+const formatDate = (dateString: string | null | undefined, includeTime: boolean = false): string | null => {
   if (!dateString) return null
 
   const options: Intl.DateTimeFormatOptions = {
@@ -618,8 +620,40 @@ const stripHtml = (html: string): string => {
 }
 
 // Lifecycle
-onMounted(() => {
-  loadExam()
+onMounted(async () => {
+  // Inicializar autenticación si no está inicializada
+  if (!authStore.user && !authStore.token) {
+    await authStore.initializeAuth()
+  }
+
+  // Verificar autenticación y redirigir según el caso
+  if (!authStore.isAuthenticated) {
+    // Si no está autenticado, redirigir al login con parámetro de redirección
+    const redirectPath = `/exams/${examId.value}`
+    router.push({
+      path: '/login',
+      query: { redirect: redirectPath },
+    })
+    return
+  }
+
+  // Si está autenticado como estudiante, redirigir a la vista de tomar examen
+  if (authStore.isStudent) {
+    router.push(`/student/exams/${examId.value}/take`)
+    return
+  }
+
+  // Si es teacher o admin, cargar el examen normalmente
+  if (authStore.isTeacher || authStore.isAdmin) {
+    loadExam()
+    return
+  }
+
+  // Si tiene otro rol o no tiene rol, redirigir al login
+  router.push({
+    path: '/login',
+    query: { redirect: `/exams/${examId.value}` },
+  })
 })
 </script>
 

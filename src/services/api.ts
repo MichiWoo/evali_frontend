@@ -64,7 +64,11 @@ class ApiService {
           // Token expired or invalid
           localStorage.removeItem('auth_token')
           localStorage.removeItem('user')
-          window.location.href = '/auth/login'
+          // Preserve redirect query parameter if exists
+          const currentPath = window.location.pathname
+          const redirectPath = currentPath !== '/login' ? currentPath : undefined
+          const redirectQuery = redirectPath ? `?redirect=${encodeURIComponent(redirectPath)}` : ''
+          window.location.href = `/login${redirectQuery}`
         }
         return Promise.reject(error)
       },

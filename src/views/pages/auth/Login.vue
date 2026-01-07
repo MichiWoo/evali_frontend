@@ -1,11 +1,12 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
 
 // Router y stores
+const route = useRoute()
 const router = useRouter()
 const authStore = useAuthStore()
 const toast = useToast()
@@ -82,7 +83,16 @@ const handleLogin = async () => {
         life: 3000,
       })
 
-      // Redirigir al dashboard basado en el rol del usuario
+      // Verificar si hay una ruta de redirección en los query params
+      const redirectPath = route.query.redirect;
+
+      if (redirectPath && typeof redirectPath === 'string') {
+        // Si hay una ruta de redirección, ir a esa ruta
+        router.push(redirectPath);
+        return;
+      }
+
+      // Si no hay redirección, redirigir al dashboard basado en el rol del usuario
       const userRole = result.data.user.roles?.[0]?.name
       console.log('Login successful, user role:', userRole)
 

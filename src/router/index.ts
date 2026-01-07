@@ -68,7 +68,7 @@ const router = createRouter({
       path: '/exams/:id',
       name: 'exam-detail',
       component: () => import('@/views/exams/ExamDetail.vue'),
-      meta: { requiresAuth: true, requiresRole: ['teacher', 'admin'], layout: 'AppLayout' },
+      meta: { layout: 'AppLayout' },
     },
     {
       path: '/exams/:id/edit',
