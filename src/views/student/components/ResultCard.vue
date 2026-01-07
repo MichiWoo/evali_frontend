@@ -72,11 +72,11 @@ import { computed } from 'vue'
 import Button from 'primevue/button'
 import Badge from 'primevue/badge'
 
-const _props = defineProps<{
+const props = defineProps<{
   result: any
 }>()
 
-const _emit = defineEmits<{
+const emit = defineEmits<{
   'view-details': [result: any]
 }>()
 

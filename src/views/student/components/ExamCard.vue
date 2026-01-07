@@ -99,7 +99,7 @@ import { computed } from 'vue'
 import Badge from 'primevue/badge'
 import Button from 'primevue/button'
 
-const _props = defineProps<{
+const props = defineProps<{
   exam: any
 }>()
 

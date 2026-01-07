@@ -5,7 +5,7 @@
       <p class="text-600 mt-3">Cargando resultados...</p>
     </div>
 
-    <div v-else-if="results.length === 0" class="empty-state">
+    <div v-else-if="!results || results.length === 0" class="empty-state">
       <i class="pi pi-inbox text-4xl text-400 mb-3"></i>
       <p class="text-600 text-lg">{{ emptyMessage }}</p>
     </div>
@@ -25,13 +25,13 @@
 import ProgressSpinner from 'primevue/progressspinner'
 import ResultCard from './ResultCard.vue'
 
-const _props = defineProps<{
+const props = defineProps<{
   results: any[]
   isLoading?: boolean
   emptyMessage?: string
 }>()
 
-const _emit = defineEmits<{
+const emit = defineEmits<{
   'view-details': [result: any]
 }>()
 

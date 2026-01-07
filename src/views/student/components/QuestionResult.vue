@@ -37,7 +37,7 @@
           <i v-else class="pi pi-circle option-icon neutral-icon"></i>
         </div>
         <div class="option-content">
-          <span class="option-label">{{ String.fromCharCode(65 + index) }}.</span>
+          <span class="option-label">{{ String.fromCharCode(65 + Number(index)) }}.</span>
           <span class="option-text">{{ option.text }}</span>
         </div>
         <div class="option-badges">
@@ -95,7 +95,7 @@
 import { computed } from 'vue'
 import Badge from 'primevue/badge'
 
-const _props = defineProps<{
+const props = defineProps<{
   question: any
   questionNumber: number
 }>()

@@ -199,28 +199,30 @@ const loadResults = async () => {
     const resultsResponse: any = await api.getStudentResults()
     console.log('Results response:', resultsResponse)
 
-    if (resultsResponse) {
-      if (resultsResponse.success && resultsResponse.data) {
-        // El backend devuelve paginación: { success: true, data: { data: [...], current_page: ..., total: ... } }
-        const paginatedData = resultsResponse.data
-        if (paginatedData.data && Array.isArray(paginatedData.data)) {
-          results.value = paginatedData.data
-        } else if (Array.isArray(paginatedData)) {
-          results.value = paginatedData
-        }
-      } else if (resultsResponse.data) {
-        const responseData = resultsResponse.data
-        if (responseData.data && Array.isArray(responseData.data)) {
-          results.value = responseData.data
-        } else if (Array.isArray(responseData)) {
-          results.value = responseData
-        }
-      } else if (Array.isArray(resultsResponse)) {
-        results.value = resultsResponse
-      }
+    // El backend devuelve: { success: true, data: { data: [...], current_page: ..., total: ... } }
+    // api.getStudentResults() devuelve response.data, que es el objeto completo del backend
+
+    if (resultsResponse?.success && resultsResponse?.data?.data) {
+      // Formato: { success: true, data: { data: [...], ... } }
+      results.value = Array.isArray(resultsResponse.data.data) ? resultsResponse.data.data : []
+    } else if (resultsResponse?.data?.data) {
+      // Formato: { data: { data: [...], ... } } (sin success)
+      results.value = Array.isArray(resultsResponse.data.data) ? resultsResponse.data.data : []
+    } else if (Array.isArray(resultsResponse?.data)) {
+      // Formato: { data: [...] } (array directo)
+      results.value = resultsResponse.data
+    } else if (Array.isArray(resultsResponse)) {
+      // Formato: [...] (array directo sin wrapper)
+      results.value = resultsResponse
+    } else {
+      console.warn('Unexpected response format:', resultsResponse)
+      results.value = []
     }
 
-    console.log('Loaded results:', results.value.length, results.value)
+    console.log('Loaded results:', results.value.length, 'items')
+    if (results.value.length > 0) {
+      console.log('First result sample:', results.value[0])
+    }
   } catch (error: any) {
     console.error('Error loading results:', error)
     toast.add({
@@ -229,6 +231,7 @@ const loadResults = async () => {
       detail: 'No se pudieron cargar los resultados. Intenta nuevamente.',
       life: 5000,
     })
+    results.value = []
   } finally {
     isLoading.value = false
   }

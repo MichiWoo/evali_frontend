@@ -200,9 +200,33 @@ async function loadAttempt() {
   try {
     isLoading.value = true
     error.value = null
+
+    console.log('Loading attempt details for ID:', attemptId)
     const res = await api.getAttemptDetails(attemptId)
-    attempt.value = res.data
+    console.log('API response:', res)
+
+    // El backend puede devolver: { success: true, data: {...} } o { data: {...} }
+    if (res.success && res.data) {
+      attempt.value = res.data
+    } else if (res.data) {
+      attempt.value = res.data
+    } else {
+      attempt.value = res
+    }
+
     console.log('Loaded attempt:', attempt.value)
+    console.log('Attempt questions:', attempt.value?.questions)
+    console.log('Questions count:', attempt.value?.questions?.length)
+
+    // Si no hay preguntas, intentar obtenerlas desde meta o answers
+    if (!attempt.value?.questions || attempt.value.questions.length === 0) {
+      console.warn('No questions found in attempt, checking meta...')
+      if (attempt.value?.meta?.answers) {
+        console.log('Found answers in meta:', attempt.value.meta.answers)
+        // El backend podría tener las respuestas en meta.answers pero no las preguntas completas
+        // Esto requeriría una llamada adicional al backend para obtener las preguntas
+      }
+    }
   } catch (e: any) {
     console.error('Error loading attempt:', e)
     error.value = e?.response?.data?.message || 'No se pudo cargar el intento'
